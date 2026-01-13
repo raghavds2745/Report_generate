@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>LLM Replay Evaluation Report</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+        }
+
+        h1,
+        h2,
+        h3 {
+            color: #2c3e50;
+        }
+
+        img {
+            max-width: 100%;
+            margin: 20px 0;
+        }
+
+        .section {
+            margin-bottom: 50px;
+        }
+
+        .insight {
+            background: #f4f6f7;
+            padding: 15px;
+            border-left: 5px solid #2c3e50;
+        }
+
+        table.dataframe {
+            border-collapse: collapse;
+            width: 100%;
+            font-size: 14px;
+        }
+
+        table.dataframe th,
+        table.dataframe td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        table.dataframe th {
+            background-color: #f2f2f2;
+        }
+
+        details {
+            margin: 15px 0;
+            padding: 10px;
+            background: #fafafa;
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>LLM Replay Evaluation Report</h1>
+    <div style="background: #e8f4f8; padding: 10px 15px; margin-bottom: 30px; border-left: 5px solid #3498db;">
+        <p style="margin: 0;">
+            <b>Source File:</b> <code>{{ csv_filename }}</code>
+    </div>
+
+
+    <div class="section">
+        <h2>Overview</h2>
+        <div class="insight">
+            <p>
+                Average Recall: <b>{{ recall_mean }}</b><br>
+                Average Precision: <b>{{ precision_mean }}</b><br>
+                Average Reranker Score: <b>{{ reranker_mean }}</b><br>
+                Average Answer Relevancy: <b>{{ answer_relevancy_mean }}</b><br>
+                Average Answer Correctness: <b>{{ answer_correctness_mean }}</b><br>
+                Hallucination Cases: <b>{{ hallucination_count }} ({{ hallucination_percentage }}% of total
+                    responses)</b>
+            </p>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Dataset Preview</h2>
+
+        <details>
+            <summary style="cursor:pointer; font-weight:bold;">
+                Click to view sample rows (df.head)
+            </summary>
+
+            <div style="overflow-x:auto; margin-top:15px;">
+                {{ data_preview | safe }}
+            </div>
+        </details>
+    </div>
+
+
+
+    <div class="section">
+        <h2>Exploratory Data Analysis (EDA)</h2>
+
+        <details>
+            <summary>Data Info (df.info)</summary>
+            <pre>{{ df_info }}</pre>
+        </details>
+
+        <details>
+            <summary>Zero Value Counts</summary>
+            {{ zero_counts | safe }}
+        </details>
+
+        <details>
+            <summary>Null Values (Numeric Columns)</summary>
+
+            <h4>Null Value Summary:</h4>
+            <div style="overflow-x:auto; margin-top: 10px;">
+                {{ null_counts_table | safe }}
+            </div>
+
+            {% if has_null_rows %}
+            <div style="margin-top: 30px;">
+                <h4>Rows with Null Values:</h4>
+                <div class="insight" style="background: #fff3cd; border-left-color: #ffc107;">
+                    <p>
+                        <b>Total rows with null values:</b> {{ total_null_rows }}<br>
+                        <b>Showing:</b> First 20 rows
+                    </p>
+                </div>
+
+                <div style="overflow-x:auto; margin-top: 10px;">
+                    {{ null_rows_sample | safe }}
+                </div>
+            </div>
+            {% else %}
+            <div style="margin-top: 20px;">
+                {{ null_rows_sample | safe }}
+            </div>
+            {% endif %}
+        </details>
+
+        <details>
+            <summary>Statistical Summary (df.describe)</summary>
+            {{ describe | safe }}
+        </details>
+    </div>
+
+
+
+    {% for plot in plots %}
+    <div class="section">
+        <h2>{{ plot.title }}</h2>
+        <img src="plots/{{ plot.file }}">
+    </div>
+    {% endfor %}
+
+    <div class="section">
+        <h2>Hallucination Analysis</h2>
+
+        <div class="insight">
+            <p>
+                <b>Hallucinations Detected:</b> {{ hallucination_count }} cases
+                ({{ hallucination_percentage }}% of total responses)
+            </p>
+            <p>
+                <b>Definition:</b> Responses with high semantic relevancy (>0.8)
+                but low factual correctness (<0.4). The model stays on-topic but provides incorrect information. </p>
+                    {% if hallucination_count > 0 %}
+                    <p>
+                        <b>Average Metrics in Hallucination Cases:</b><br>
+                        - Answer Relevancy: {{ hallucination_avg_relevancy }}<br>
+                        - Answer Correctness: {{ hallucination_avg_correctness }}
+                    </p>
+                    {% endif %}
+        </div>
+
+        {% if hallucination_count > 0 %}
+        <details>
+            <summary style="cursor:pointer; font-weight:bold;">
+                View Sample Hallucination Cases (Top 5)
+            </summary>
+            <div style="overflow-x:auto; margin-top:15px;">
+                {{ hallucination_samples | safe }}
+            </div>
+        </details>
+        {% else %}
+        <p style="color: green;">No hallucination cases detected in this dataset.</p>
+        {% endif %}
+    </div>
+
+    <div class="section">
+        <h2>Misunderstanding Analysis</h2>
+
+        <div class="insight">
+            <p>
+                <b>Misunderstandings Detected:</b> {{ misunderstanding_count }} cases
+                ({{ misunderstanding_percentage }}% of total responses)
+            </p>
+            <p>
+                <b>Definition:</b> Responses with low semantic relevancy (<0.4) but high factual correctness (>0.8). The
+                    model provides accurate
+                    information but doesn't directly address the question.
+            </p>
+            {% if misunderstanding_count > 0 %}
+            <p>
+                <b>Average Metrics in Misunderstanding Cases:</b><br>
+                - Answer Relevancy: {{ misunderstanding_avg_relevancy }}<br>
+                - Answer Correctness: {{ misunderstanding_avg_correctness }}
+            </p>
+            {% endif %}
+        </div>
+
+        {% if misunderstanding_count > 0 %}
+        <details>
+            <summary style="cursor:pointer; font-weight:bold;">
+                View Sample Misunderstanding Cases (Top 5)
+            </summary>
+            <div style="overflow-x:auto; margin-top:15px;">
+                {{ misunderstanding_samples | safe }}
+            </div>
+        </details>
+        {% else %}
+        <p style="color: green;"> No misunderstanding cases detected in this dataset.</p>
+        {% endif %}
+    </div>
+
+    <div class="section">
+        <h2> Edge Case Analysis</h2>
+
+        <div class="insight">
+            <p>
+                Edge cases represent unusual patterns where metric combinations
+                reveal specific system behaviors or failure modes.
+            </p>
+        </div>
+
+        <h3>Summary of Edge Cases</h3>
+        <div style="overflow-x:auto;">
+            {{ edge_case_summary_table | safe }}
+        </div>
+
+        <details style="margin-top: 20px;">
+            <summary style="cursor:pointer; font-weight:bold;">
+                EC1: High Recall, Low Precision ({{ ec1_count }} cases)
+            </summary>
+            <p><b>Threshold:</b> <code>{{ ec1_threshold }}</code></p>
+            <p><i>{{ ec1_description }}</i></p>
+            {% if ec1_count > 0 %}
+            <div style="overflow-x:auto; margin-top:10px;">
+                {{ ec1_samples | safe }}
+            </div>
+            {% else %}
+            <p>No cases found.</p>
+            {% endif %}
+        </details>
+
+        <details>
+            <summary style="cursor:pointer; font-weight:bold;">
+                EC2: High Recall, Low Reranker Score ({{ ec2_count }} cases)
+            </summary>
+            <p><b>Threshold:</b> <code>{{ ec2_threshold }}</code></p>
+            <p><i>{{ ec2_description }}</i></p>
+            {% if ec2_count > 0 %}
+            <div style="overflow-x:auto; margin-top:10px;">
+                {{ ec2_samples | safe }}
+            </div>
+            {% else %}
+            <p>No cases found.</p>
+            {% endif %}
+        </details>
+
+        <details>
+            <summary style="cursor:pointer; font-weight:bold;">
+                EC3: Good Retrieval, Low Correctness ({{ ec3_count }} cases)
+            </summary>
+            <p><b>Threshold:</b> <code>{{ ec3_threshold }}</code></p>
+            <p><i>{{ ec3_description }}</i></p>
+            {% if ec3_count > 0 %}
+            <div style="overflow-x:auto; margin-top:10px;">
+                {{ ec3_samples | safe }}
+            </div>
+            {% else %}
+            <p>No cases found.</p>
+            {% endif %}
+        </details>
+
+        <details>
+            <summary style="cursor:pointer; font-weight:bold;">
+                EC4: Poor Retrieval, High Correctness ({{ ec4_count }} cases)
+            </summary>
+            <p><b>Threshold:</b> <code>{{ ec4_threshold }}</code></p>
+            <p><i>{{ ec4_description }}</i></p>
+            {% if ec4_count > 0 %}
+            <div style="overflow-x:auto; margin-top:10px;">
+                {{ ec4_samples | safe }}
+            </div>
+            {% else %}
+            <p>No cases found.</p>
+            {% endif %}
+        </details>
+    </div>
+
+
+
+    <div class="section">
+        <h2>Reranker Score Analysis</h2>
+
+        <div class="insight">
+            <p>
+                This table shows the average performance metrics grouped by Reranker Score.
+                Higher reranker scores should correlate with better retrieval and answer quality.
+            </p>
+        </div>
+
+        <div style="overflow-x:auto;">
+            {{ reranker_summary_table | safe }}
+        </div>
+
+
+    </div>
+
+
+
+
+</body>
+
+</html>
