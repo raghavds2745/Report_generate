@@ -6,7 +6,7 @@ import torch
 from io import StringIO
 
 # Config
-CSV_PATH = "05-01-2026-16-17community_304_filtered_metrics_ragas.csv"
+CSV_PATH = "15-01-2026-16-38community_545.csv"
 
 pd.set_option('display.max_rows', None)
 pd.set_option('display.max_columns', None)
@@ -296,6 +296,7 @@ model = SentenceTransformer("all-MiniLM-L6-v2")
 def main():
     # Load Data
     df = pd.read_csv(CSV_PATH)
+    df = df.dropna(how="all")
     
     df["Recall"] = df["Recall"].astype(float)
     # Numeric columns

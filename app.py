@@ -100,12 +100,7 @@ with st.sidebar:
             
             st.success("✅ Sample data loaded!")
             
-            st.info("""
-            **About Sample Data:**
-            - Contains 30 example questions
-            - Demonstrates all comparison features
-            - Perfect for testing the tool
-            """)
+            
             
             # Show sample data info
             with st.expander("View Sample Data Info"):
@@ -188,10 +183,14 @@ if prev_file and new_file:
         if isinstance(prev_file, str):  # Stored files (file paths)
             df_prev = pd.read_csv(prev_file)
             df_new = pd.read_csv(new_file)
+            df_prev = df_prev.dropna(how='all')
+            df_new = df_new.dropna(how='all')
             data_source_type = "stored"
         else:  # Uploaded files
             df_prev = pd.read_csv(prev_file)
             df_new = pd.read_csv(new_file)
+            df_prev = df_prev.dropna(how='all')
+            df_new = df_new.dropna(how='all')
             data_source_type = "uploaded"
         
         # Verify required columns exist
@@ -234,13 +233,14 @@ if prev_file and new_file:
                        'Precision', 'Recall', 'Reranker Score', 'F1 Score']
         
         # Create tabs
-        tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs([
+        tab1, tab2, tab3, tab4, tab5, tab6, tab7 = st.tabs([
             "Overview", 
             "Combined Data", 
             "Detailed Comparison",
             "Significant Changes",
             "Hallucination Analysis",
-            "Retrieval Metrics Changes"
+            "Retrieval Metrics Changes",
+            "Response Analysis"
         ])        
            
   
@@ -323,7 +323,10 @@ if prev_file and new_file:
                     how='outer',
                     suffixes=('_prev', '_new')
                 )
-                
+                search_query = st.text_input(
+                    "🔍 Search by user_input",
+                    placeholder="Enter text from user_input..."
+                )
                 # Reorder columns to show prev and new side by side
                 ordered_cols = ['user_input']
                 for col in df_prev.columns:
@@ -348,12 +351,29 @@ if prev_file and new_file:
                     mime="text/csv"
                 )
                 
-                # Display dataframe with search
+
+                if search_query:
+                    filtered_df = merged_df_ordered[
+                        merged_df_ordered['user_input']
+                        .astype(str)
+                        .str.contains(search_query, case=False, na=False)
+                    ]
+                else:
+                    filtered_df = merged_df_ordered
+
+                st.info(f"Showing {len(filtered_df)} rows after search")
+
                 st.dataframe(
-                    merged_df_ordered,
+                    filtered_df,
                     use_container_width=True,
                     height=600
                 )
+                # # Display dataframe with search
+                # st.dataframe(
+                #     merged_df_ordered,
+                #     use_container_width=True,
+                #     height=600
+                # )
             
             # TAB 3: Detailed Comparison
             
@@ -699,7 +719,7 @@ if prev_file and new_file:
                 
                 # Helper function to prepare display dataframe
                 def prepare_display_df(df):
-                    display_df = df[[
+                    expected_cols = [
                         'user_input',
                         'answer_relevancy_prev',
                         'answer_relevancy_new',
@@ -709,30 +729,76 @@ if prev_file and new_file:
                         'correctness_change',
                         'response_prev',
                         'response_new'
-                    ]].copy()
-                    
-                    # Round numeric columns
-                    display_df['answer_relevancy_prev'] = display_df['answer_relevancy_prev'].round(4)
-                    display_df['answer_relevancy_new'] = display_df['answer_relevancy_new'].round(4)
-                    display_df['relevancy_change'] = display_df['relevancy_change'].round(4)
-                    display_df['answer_correctness_prev'] = display_df['answer_correctness_prev'].round(4)
-                    display_df['answer_correctness_new'] = display_df['answer_correctness_new'].round(4)
-                    display_df['correctness_change'] = display_df['correctness_change'].round(4)
-                    
-                    # Rename columns for clarity
-                    display_df.columns = [
-                        'Question',
-                        'Relevancy (Prev)',
-                        'Relevancy (New)',
-                        'Relevancy Change',
-                        'Correctness (Prev)',
-                        'Correctness (New)',
-                        'Correctness Change',
-                        'Response (Prev)',
-                        'Response (New)'
                     ]
-                    
+
+                    # Keep only columns that actually exist
+                    available_cols = [c for c in expected_cols if c in df.columns]
+
+                    display_df = df[available_cols].copy()
+
+                    # Round numeric columns safely
+                    for col in [
+                        'answer_relevancy_prev',
+                        'answer_relevancy_new',
+                        'relevancy_change',
+                        'answer_correctness_prev',
+                        'answer_correctness_new',
+                        'correctness_change'
+                    ]:
+                        if col in display_df.columns:
+                            display_df[col] = display_df[col].round(4)
+
+                    # Rename columns dynamically
+                    rename_map = {
+                        'user_input': 'Question',
+                        'answer_relevancy_prev': 'Relevancy (Prev)',
+                        'answer_relevancy_new': 'Relevancy (New)',
+                        'relevancy_change': 'Relevancy Change',
+                        'answer_correctness_prev': 'Correctness (Prev)',
+                        'answer_correctness_new': 'Correctness (New)',
+                        'correctness_change': 'Correctness Change',
+                        'response_prev': 'Response (Prev)',
+                        'response_new': 'Response (New)'
+                    }
+
+                    display_df = display_df.rename(columns={k: v for k, v in rename_map.items() if k in display_df.columns})
+
                     return display_df
+                # def prepare_display_df(df):
+                #     display_df = df[[
+                #         'user_input',
+                #         'answer_relevancy_prev',
+                #         'answer_relevancy_new',
+                #         'relevancy_change',
+                #         'answer_correctness_prev',
+                #         'answer_correctness_new',
+                #         'correctness_change',
+                #         'response_prev',
+                #         'response_new'
+                #     ]].copy()
+                    
+                #     # Round numeric columns
+                #     display_df['answer_relevancy_prev'] = display_df['answer_relevancy_prev'].round(4)
+                #     display_df['answer_relevancy_new'] = display_df['answer_relevancy_new'].round(4)
+                #     display_df['relevancy_change'] = display_df['relevancy_change'].round(4)
+                #     display_df['answer_correctness_prev'] = display_df['answer_correctness_prev'].round(4)
+                #     display_df['answer_correctness_new'] = display_df['answer_correctness_new'].round(4)
+                #     display_df['correctness_change'] = display_df['correctness_change'].round(4)
+                    
+                #     # Rename columns for clarity
+                #     display_df.columns = [
+                #         'Question',
+                #         'Relevancy (Prev)',
+                #         'Relevancy (New)',
+                #         'Relevancy Change',
+                #         'Correctness (Prev)',
+                #         'Correctness (New)',
+                #         'Correctness Change',
+                #         'Response (Prev)',
+                #         'Response (New)'
+                #     ]
+                    
+                #     return display_df
                 
                 # Resolved cases
                 with tab_resolved:
@@ -746,9 +812,7 @@ if prev_file and new_file:
                         - Previous: Relevancy > 0.8 AND Correctness < 0.4 (hallucination)
                         - New: Relevancy > 0.8 AND Correctness ≥ 0.4 (good quality)
                         
-                        Look for:
-                        - Increased correctness (positive change)
-                        - Maintained high relevancy (> 0.8)
+
                         """)
                         
                         resolved_display = prepare_display_df(resolved_cases)
@@ -795,9 +859,7 @@ if prev_file and new_file:
                         - Previous: NOT a hallucination (either relevancy ≤ 0.8 OR correctness ≥ 0.4)
                         - New: Relevancy > 0.8 AND Correctness < 0.4 (hallucination)
                         
-                        Look for:
-                        - Decreased correctness (negative change)
-                        - High relevancy maintained but accuracy dropped
+                        
                         """)
                         
                         new_display = prepare_display_df(new_cases)
@@ -844,10 +906,7 @@ if prev_file and new_file:
                         - Previous: Relevancy > 0.8 AND Correctness < 0.4 (hallucination)
                         - New: Relevancy > 0.8 AND Correctness < 0.4 (still hallucination)
                         
-                        Look for:
-                        - Whether correctness is improving or worsening (even if still below 0.4)
-                        - Cases where correctness improved but still below threshold
-                        - Consistently problematic questions that need attention
+                        
                         """)
                         
                         persistent_display = prepare_display_df(persistent_cases)
@@ -1266,7 +1325,238 @@ if prev_file and new_file:
                     
                 else:
                     st.success("No changes detected in Precision, Recall, or Reranker Score across common questions")
+
+        # TAB 7: Response Analysis
+        with tab7:
+            st.header("Response Analysis")
             
+            st.info("Analyze occurrences of common error phrases in the responses of both runs.")
+            
+            # Define error phrases
+            error_phrases = [
+                "The provided sources do not contain",
+                "I'm not designed to respond to that type of question",
+                "Error occured",
+            ]
+            
+            # Phrase selection dropdown
+            st.subheader("Select Error Phrase to Analyze")
+            selected_phrase = st.selectbox(
+                "Choose an error phrase:",
+                options=error_phrases,
+                index=0
+            )
+            
+            st.markdown("---")
+            
+            # Check if response column exists
+            has_response_prev = 'response' in df_prev.columns
+            has_response_new = 'response' in df_new.columns
+            
+            if not has_response_prev or not has_response_new:
+                st.warning("⚠️ 'response' column not found in one or both CSV files. Response analysis requires this column.")
+                st.info("Available columns in Previous CSV: " + ", ".join(df_prev.columns.tolist()))
+                st.info("Available columns in New CSV: " + ", ".join(df_new.columns.tolist()))
+            else:
+                # Filter responses containing the selected phrase (case-insensitive)
+                df_prev['contains_phrase'] = df_prev['response'].astype(str).str.contains(
+                    selected_phrase, case=False, na=False
+                )
+                df_new['contains_phrase'] = df_new['response'].astype(str).str.contains(
+                    selected_phrase, case=False, na=False
+                )
+                
+                prev_count = df_prev['contains_phrase'].sum()
+                new_count = df_new['contains_phrase'].sum()
+                
+                # Summary metrics
+                col1, col2, col3 = st.columns(3)
+                
+                with col1:
+                    st.metric(
+                        "Previous Run",
+                        prev_count,
+                        delta=None
+                    )
+                
+                with col2:
+                    diff = new_count - prev_count
+                    st.metric(
+                        "New Run",
+                        new_count,
+                        delta=diff,
+                        delta_color="inverse"  # More errors is bad
+                    )
+                
+                with col3:
+                    pct_change = (diff / prev_count * 100) if prev_count > 0 else 0
+                    st.metric(
+                        "Change",
+                        f"{pct_change:.1f}%",
+                        delta=diff,
+                        delta_color="inverse"
+                    )
+                
+                st.markdown("---")
+                
+                # Tabs for Previous and New runs
+                tab_prev, tab_new = st.tabs([
+                    f"Previous Run ({prev_count} cases)",
+                    f"New Run ({new_count} cases)"
+                ])
+                
+                # Helper function to prepare display dataframe
+                def prepare_response_display(df, run_name):
+                    filtered_df = df[df['contains_phrase'] == True].copy()
+                    
+                    if len(filtered_df) == 0:
+                        return None
+                    
+                    # Select relevant columns
+                    display_cols = ['user_input', 'answer_relevancy', 'answer_correctness', 'response']
+                    
+                    # Add optional columns if they exist
+                    if 'Precision' in filtered_df.columns:
+                        display_cols.append('Precision')
+                    if 'Recall' in filtered_df.columns:
+                        display_cols.append('Recall')
+                    
+                    display_df = filtered_df[display_cols].copy()
+                    
+                    # Round numeric columns
+                    display_df['answer_relevancy'] = display_df['answer_relevancy'].round(4)
+                    display_df['answer_correctness'] = display_df['answer_correctness'].round(4)
+                    if 'Precision' in display_df.columns:
+                        display_df['Precision'] = display_df['Precision'].round(4)
+                    if 'Recall' in display_df.columns:
+                        display_df['Recall'] = display_df['Recall'].round(4)
+                    
+                    # Add flag for zero metrics
+                    display_df['Has_Zero_Metric'] = (
+                        (display_df['answer_relevancy'] == 0) | 
+                        (display_df['answer_correctness'] == 0)
+                    )
+                    
+                    return display_df
+                
+                # Previous Run tab
+                with tab_prev:
+                    prev_display = prepare_response_display(df_prev, "Previous")
+                    
+                    if prev_display is not None and len(prev_display) > 0:
+                        st.info(f"Found {len(prev_display)} responses containing: '{selected_phrase}'")
+                        
+                        # Count zero metrics
+                        zero_metrics = prev_display['Has_Zero_Metric'].sum()
+                        if zero_metrics > 0:
+                            st.warning(f"⚠️ {zero_metrics} cases have relevancy or correctness = 0")
+                        
+                        # Highlight function for zero metrics
+                        def highlight_zero_metrics_prev(row):
+                            colors = [''] * len(row)
+                            # Check if this row has zero metrics
+                            has_zero = (row['answer_relevancy'] == 0) or (row['answer_correctness'] == 0)
+                            
+                            if has_zero:
+                                for idx, col in enumerate(row.index):
+                                    if col == 'answer_relevancy' and row[col] == 0:
+                                        colors[idx] = 'background-color: #f8d7da; font-weight: bold; color: #721c24'
+                                    elif col == 'answer_correctness' and row[col] == 0:
+                                        colors[idx] = 'background-color: #f8d7da; font-weight: bold; color: #721c24'
+                            return colors
+                        
+                        # Remove the flag column for display
+                        display_for_show = prev_display.drop(columns=['Has_Zero_Metric'])
+                        
+                        styled_prev = display_for_show.style.apply(highlight_zero_metrics_prev, axis=1)
+                        
+                        st.dataframe(styled_prev, use_container_width=True, height=500)
+                        
+                        # Download button
+                        csv_prev_resp = display_for_show.to_csv(index=False)
+                        st.download_button(
+                            label="Download Previous Run Analysis",
+                            data=csv_prev_resp,
+                            file_name=f"prev_response_analysis_{selected_phrase[:20]}.csv",
+                            mime="text/csv",
+                            key="download_prev_resp"
+                        )
+                    else:
+                        st.success(f"✅ No responses containing '{selected_phrase}' in Previous Run")
+
+                # New Run tab
+                with tab_new:
+                    new_display = prepare_response_display(df_new, "New")
+                    
+                    if new_display is not None and len(new_display) > 0:
+                        st.info(f"Found {len(new_display)} responses containing: '{selected_phrase}'")
+                        
+                        # Count zero metrics
+                        zero_metrics = new_display['Has_Zero_Metric'].sum()
+                        if zero_metrics > 0:
+                            st.warning(f"⚠️ {zero_metrics} cases have relevancy or correctness = 0")
+                        
+                        # Highlight function for zero metrics
+                        def highlight_zero_metrics_new(row):
+                            colors = [''] * len(row)
+                            # Check if this row has zero metrics
+                            has_zero = (row['answer_relevancy'] == 0) or (row['answer_correctness'] == 0)
+                            
+                            if has_zero:
+                                for idx, col in enumerate(row.index):
+                                    if col == 'answer_relevancy' and row[col] == 0:
+                                        colors[idx] = 'background-color: #f8d7da; font-weight: bold; color: #721c24'
+                                    elif col == 'answer_correctness' and row[col] == 0:
+                                        colors[idx] = 'background-color: #f8d7da; font-weight: bold; color: #721c24'
+                            return colors
+                        
+                        # Remove the flag column for display
+                        display_for_show = new_display.drop(columns=['Has_Zero_Metric'])
+                        
+                        styled_new = display_for_show.style.apply(highlight_zero_metrics_new, axis=1)
+                        
+                        st.dataframe(styled_new, use_container_width=True, height=500)
+                        
+                        # Download button
+                        csv_new_resp = display_for_show.to_csv(index=False)
+                        st.download_button(
+                            label="Download New Run Analysis",
+                            data=csv_new_resp,
+                            file_name=f"new_response_analysis_{selected_phrase[:20]}.csv",
+                            mime="text/csv",
+                            key="download_new_resp"
+                        )
+                    else:
+                        st.success(f"✅ No responses containing '{selected_phrase}' in New Run")
+                st.markdown("---")
+                
+                # Visualization - Comparison chart
+                st.subheader("Phrase Occurrence Comparison")
+                
+                fig_phrase = go.Figure()
+                
+                fig_phrase.add_trace(go.Bar(
+                    name='Count',
+                    x=['Previous Run', 'New Run'],
+                    y=[prev_count, new_count],
+                    text=[prev_count, new_count],
+                    textposition='auto',
+                    marker_color=['#3498db', '#e74c3c' if new_count > prev_count else '#2ecc71']
+                ))
+                
+                fig_phrase.update_layout(
+                    title=f"Occurrence of '{selected_phrase}'",
+                    yaxis_title="Number of Responses",
+                    height=400,
+                    showlegend=False
+                )
+                
+                st.plotly_chart(fig_phrase, use_container_width=True)
+
+
+
+
+
     except FileNotFoundError as e:
         st.error(f"❌ File not found: {str(e)}")
         st.info("Please ensure the CSV files exist in the 'stored_csvs' folder")

@@ -61,7 +61,7 @@
     <h1>LLM Replay Evaluation Report</h1>
     <div style="background: #e8f4f8; padding: 10px 15px; margin-bottom: 30px; border-left: 5px solid #3498db;">
         <p style="margin: 0;">
-            <b>Source File:</b> <code>05-01-2026-16-17community_304_filtered_metrics_ragas.csv</code>
+            <b>Source File:</b> <code>15-01-2026-16-38community_545.csv</code>
     </div>
 
 
@@ -69,12 +69,12 @@
         <h2>Overview</h2>
         <div class="insight">
             <p>
-                Average Recall: <b>0.86</b><br>
-                Average Precision: <b>0.65</b><br>
-                Average Reranker Score: <b>0.76</b><br>
-                Average Answer Relevancy: <b>0.84</b><br>
-                Average Answer Correctness: <b>0.52</b><br>
-                Hallucination Cases: <b>79 (26.07% of total
+                Average Recall: <b>0.98</b><br>
+                Average Precision: <b>0.74</b><br>
+                Average Reranker Score: <b>0.83</b><br>
+                Average Answer Relevancy: <b>0.62</b><br>
+                Average Answer Correctness: <b>0.53</b><br>
+                Hallucination Cases: <b>60 (11.01% of total
                     responses)</b>
             </p>
         </div>
@@ -95,98 +95,110 @@
       <th>Unnamed: 0</th>
       <th>user_input</th>
       <th>Expected Source</th>
+      <th>Actual Sources</th>
       <th>response</th>
       <th>reference</th>
-      <th>Actual Sources</th>
       <th>answer_relevancy</th>
       <th>answer_correctness</th>
       <th>Precision</th>
       <th>Recall</th>
       <th>Reranker Score</th>
       <th>F1 Score</th>
+      <th>Unnamed: 12</th>
+      <th>Unnamed: 13</th>
       <th>relevancy_bucket</th>
       <th>correctness_bucket</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>0</td>
-      <td>How long do you blanch the cavolo neri?</td>
-      <td>Aoc's Long Cooked Cavolo Nero (Tuscan Kale)</td>
-      <td>The provided source indicates that you should blanch the cavolo nero in a large pot of salted boiling water just until it is softened slightly, which takes about **2 to 3 minutes**[1]. This brief blanching process helps to soften the kale slightly before it is further cooked in the saucepan. After blanching, the cavolo nero should be drained and immediately placed in a bowl of ice water to cool, then drained again and set aside before proceeding with the rest of the recipe.</td>
-      <td>Blanch the cavolo nero in a large pot of salted boiling water just until softened slightly 2 to 3 minutes.</td>
-      <td>["Aoc's Long Cooked Cavolo Nero (Tuscan Kale)"]</td>
-      <td>0.930055</td>
-      <td>0.610313</td>
-      <td>0.000000</td>
       <td>0.0</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>Excellent</td>
-      <td>High</td>
-    </tr>
-    <tr>
-      <td>1</td>
-      <td>How many spices are in the Emeril's Essence recipe?</td>
-      <td>Pressure Cooker Beef Stew</td>
-      <td>The provided source does not contain the exact list of spices in the Emeril's Essence recipe. However, it mentions that the list of 8 spices at the end of the recipe make up the Emeril's Essence. Therefore, the Emeril's Essence recipe consists of 8 spices.</td>
-      <td>The list of 8 spices at the end of the recipe make up the Emeril's Essence.</td>
-      <td>['Pressure Cooker Beef Stew']</td>
-      <td>1.000000</td>
-      <td>0.832598</td>
-      <td>1.000000</td>
-      <td>1.0</td>
-      <td>1.000000</td>
-      <td>1.000000</td>
-      <td>Excellent</td>
-      <td>High</td>
-    </tr>
-    <tr>
-      <td>2</td>
-      <td>How long does squash bake in a 400F oven?</td>
-      <td>Baked Stuffed Butternut Squash, Vegetarian</td>
-      <td>The provided sources indicate that the baking time for squash in a 400°F oven varies depending on the recipe. For the **Baked Stuffed Butternut Squash**, the squash is baked cut side down for **45 minutes** [1]. For the **Roasted Squash Salad**, the squash is roasted for **45 to 60 minutes** until a fork can pierce the flesh with no resistance [2]. Therefore, the baking time can range from 45 to 60 minutes, depending on the specific recipe and desired tenderness.\n\nWhile widely known, the exact baking time can also depend on the size and type of squash, as well as personal preference for tenderness. For a more precise baking time, it is advisable to check the squash periodically after the minimum suggested time to ensure it reaches the desired level of doneness. If you are looking for a more interactive dining experience, consider serving the roasted squash salad as a first course, allowing guests to assemble their own salad at the table [2]. This can add a fun and engaging element to your meal.</td>
-      <td>Bake squash cut side down 400F degrees oven for 45 minutes.</td>
-      <td>['Roasted Squash Salad With Arugula and Chevre(Argentina)', 'Baked Stuffed Butternut Squash, Vegetarian']</td>
-      <td>0.986350</td>
-      <td>0.479879</td>
+      <td>What is the key to stability of DNA?</td>
+      <td>Biochemistry</td>
+      <td>['Computational chemistry', 'Biochemistry']</td>
+      <td>The key to the stability of DNA lies in the hydrogen bonding between complementary base pairs, which ensures the integrity and functionality of the genetic material. The DNA molecule consists of two long polynucleotide chains composed of four types of nucleotide subunits: adenine (A), cytosine (C), guanine (G), and thymine (T). These nucleotides are connected by phosphodiester bonds, forming the backbone of each DNA strand. The two DNA strands are held together by hydrogen bonds between the nitrogenous bases of the nucleotides, following the base-pairing rule where adenine (A) pairs with thymine (T), and cytosine (C) pairs with guanine (G) [1].\n\nThe hydrogen bonds between these complementary base pairs play a crucial role in the stability of the DNA double helix. Specifically, adenine and thymine form two hydrogen bonds, while cytosine and guanine form three hydrogen bonds. This difference in the number of hydrogen bonds contributes to the overall stability of the DNA molecule. Regions of DNA that are rich in guanine and cytosine (GC-rich regions) are considered more stable than those rich in adenine and thymine (AT-rich regions) because of the additional hydrogen bond in the GC pairs [1].\n\nThe significance of hydrogen bonding in the DNA double helix can be summarized as follows:\n\n1. **Stability**: The hydrogen bonds between the complementary base pairs contribute to the overall stability of the DNA molecule. The more hydrogen bonds present, the more stable the DNA structure [1].\n\n2. **Specificity**: Hydrogen bonding ensures that only specific base pairs can form, maintaining the fidelity of the genetic information stored in the DNA molecule. This is essential for accurate replication and transcription of genetic information [1].\n\n3. **Structure**: Hydrogen bonding between the complementary base pairs allows the DNA strands to twist into the characteristic double helix structure. This structure enables efficient packing of the DNA molecule within the cell nucleus and protects the genetic information from external factors [1].\n\n4. **Replication and Transcription**: The hydrogen bonds between the complementary base pairs can be easily broken and reformed during DNA replication and transcription. This allows the DNA strands to separate and serve as templates for the synthesis of new DNA strands or RNA molecules [1].\n\nIn conclusion, hydrogen bonding is essential for the structure, stability, and function of the DNA double helix. It ensures the specificity of base pairing, maintains the integrity of genetic information, and allows for the accurate replication and transcription of genetic material [1].\n\nWould you like to know more about the role of hydrogen bonding in other biological molecules or the impact of mutations on DNA stability?</td>
+      <td>Hydrogen bonding plays a crucial role in the structure and stability of the DNA double helix.</td>
+      <td>0.910640</td>
+      <td>0.572043</td>
       <td>0.500000</td>
       <td>1.0</td>
       <td>0.500000</td>
       <td>0.666667</td>
+      <td>NaN</td>
+      <td>NaN</td>
       <td>Excellent</td>
       <td>Medium</td>
     </tr>
     <tr>
-      <td>3</td>
-      <td>How long do chicken breasts bake at 350 degrees uncovered?</td>
-      <td>Cranberry Smothered Chicken</td>
-      <td>The provided sources offer a range of baking times for chicken breasts at 350°F (175°C) uncovered. Here are the specific details:\n\n- **Cranberry Smothered Chicken**: Bake for 45 minutes or until a fork can be inserted with ease [2].\n- **Easy N Sassy Chicken**: Bake for about 50 minutes [5].\n\nWhile these sources provide some guidance, it's important to note that the actual baking time can vary based on the size and thickness of the chicken breasts. For the most accurate results, it's recommended to use a meat thermometer to ensure the chicken reaches an internal temperature of 165°F (74°C).\n\nIf you're looking for a more general guideline, a common recommendation is to bake chicken breasts at 350°F (175°C) for about 20-30 minutes per pound, or until the internal temperature reaches 165°F (74°C). However, this is a rough estimate and can vary based on the specific recipe and oven.\n\nWould you like more information on how to determine the doneness of chicken breasts or tips for achieving the perfect bake?</td>
-      <td>Bake at 350 uncovered for 45 minutes or until fork can be inserted with ease.</td>
-      <td>['Oven Chicken and Dumplings- Homemade Gourmet', 'Breast of Chicken, Eden Isle', 'Chicken Italian Style Saltimbocca', 'Easy N Sassy Chicken', 'Asian Baked Chicken in Vinegar Sauce', 'Balsamic Chicken Breast With Cilantro', 'Cranberry Smothered Chicken']</td>
-      <td>0.970346</td>
-      <td>0.650259</td>
-      <td>0.142857</td>
       <td>1.0</td>
-      <td>0.142857</td>
-      <td>0.250000</td>
+      <td>What does a higher concentration of reactants lead to?</td>
+      <td>Chemical kinetics</td>
+      <td>['Chemical reactions', 'Chemical synthesis', 'Chemical equilibrium', 'Computational chemistry', 'Chemical kinetics']</td>
+      <td>Increasing the concentration of reactants in a chemical reaction generally leads to a higher reaction rate. This is primarily because a higher concentration of reactants results in more frequent collisions between the reactant molecules, which in turn increases the probability of successful collisions that lead to the formation of products. This relationship is described by the rate law, which states that the rate of a reaction is proportional to the concentration of the reactants raised to the power of their respective reaction orders [1][5][9].\n\nFor example, in a reactant-limited chemical reaction at equilibrium, increasing the concentration of reactants will generally increase the rate of the reaction. This can be demonstrated experimentally by preparing solutions with varying concentrations of reactants and measuring the initial rate of reaction for each solution. By plotting the initial rate of reaction against the concentration of reactants, one can determine the reaction order for each reactant and write the rate law for the reaction [1].\n\nIn summary, a higher concentration of reactants leads to an increased reaction rate, which can be described and predicted using the rate law derived from experimental data.</td>
+      <td>This is because a higher concentration of reactants leads to more frequent collisions between the reactant molecules, which in turn increases the probability of successful collisions that result in the formation of products.</td>
+      <td>0.920063</td>
+      <td>0.663350</td>
+      <td>0.200000</td>
+      <td>1.0</td>
+      <td>0.200000</td>
+      <td>0.333333</td>
+      <td>NaN</td>
+      <td>NaN</td>
       <td>Excellent</td>
       <td>High</td>
     </tr>
     <tr>
-      <td>4</td>
-      <td>How many cupcake liners are in the oven?</td>
-      <td>Stout Gingerbread Cupcakes With Cream Cheese Frosting</td>
-      <td>The provided source does not contain any information about the number of cupcake liners currently in the oven. However, the recipe specifies that 24 cupcake liners should be placed in the cupcake pans before baking [1]. This means that, if the recipe is followed exactly, there should be 24 cupcake liners in the oven.</td>
-      <td>Preheat oven to 350Ìâå¡F Place 24 cupcake liners in cupcake pans.</td>
-      <td>['Stout Gingerbread Cupcakes With Cream Cheese Frosting']</td>
-      <td>0.000000</td>
-      <td>0.736090</td>
-      <td>1.000000</td>
+      <td>2.0</td>
+      <td>What is TCM?</td>
+      <td>Medicinal chemistry</td>
+      <td>['what is scm?', 'General glossary T Tcl', 'Medicinal chemistry', 'Tata_Motors.pdf']</td>
+      <td>The provided sources do not contain any information about TCM. However, TCM typically refers to Traditional Chinese Medicine, a system of healing that has been used in China for thousands of years. It is based on the concept of balancing the body's energy, or "qi," through various practices such as herbal medicine, acupuncture, and dietary therapy. TCM is used to treat a wide range of conditions, from common ailments like colds and headaches to more complex issues like chronic pain and digestive disorders. It is often used alongside conventional Western medicine, and many of its principles and practices have been integrated into modern healthcare systems around the world.</td>
+      <td>Traditional Chinese medicine (TCM) has a long history of using natural herbs and remedies to treat various diseases and conditions, including metabolic disorders.</td>
+      <td>0.901811</td>
+      <td>0.694816</td>
+      <td>0.250000</td>
       <td>1.0</td>
-      <td>1.000000</td>
-      <td>1.000000</td>
+      <td>0.333333</td>
+      <td>0.400000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Excellent</td>
+      <td>High</td>
+    </tr>
+    <tr>
+      <td>3.0</td>
+      <td>When does the reaction conditions favor dehydration, what can one of alcohol molecules do to form alkene?</td>
+      <td>Organic chemistry</td>
+      <td>['Ethanol.pdf', 'Organic chemistry']</td>
+      <td>The provided sources do not contain any information about the specific conditions that favor dehydration in the context of alcohol molecules forming alkenes. However, based on general and/or common knowledge, I can provide some insights.\n\nWhen reaction conditions favor dehydration, one of the alcohol molecules can undergo a dehydration reaction to form an alkene. This typically occurs in the presence of a strong acid catalyst, such as sulfuric acid (H2SO4), and under conditions of high temperature. The mechanism involves the following steps:\n\n1. **Protonation of the alcohol oxygen**: The alcohol oxygen atom attacks a proton from the acid, resulting in the protonation of the alcohol oxygen (R'-OH becomes R'-OH2+).\n\n2. **Formation of a carbocation**: The protonated alcohol loses a water molecule, resulting in the formation of a carbocation (R'-OH2+ becomes R').\n\n3. **Deprotonation to form an alkene**: A base (such as water) deprotonates an adjacent carbon atom, resulting in the formation of an alkene (R' becomes R'-CH=CH2) [1][3].\n\nThis process is known as intramolecular dehydration, where water is removed from the same molecule, leading to the formation of an alkene. The reaction conditions, such as the presence of an acid catalyst and high temperature, play a crucial role in driving this dehydration process.\n\nWould you like to know more about this topic, such as the specific conditions that favor dehydration or the detailed mechanism of the reaction?</td>
+      <td>Dehydration (optional):\nIf the reaction conditions favor dehydration, one of the alcohol molecules can lose a water molecule to form an alkene.</td>
+      <td>0.000000</td>
+      <td>0.351270</td>
+      <td>0.500000</td>
+      <td>1.0</td>
+      <td>0.500000</td>
+      <td>0.666667</td>
+      <td>NaN</td>
+      <td>NaN</td>
       <td>Low</td>
+      <td>Medium</td>
+    </tr>
+    <tr>
+      <td>4.0</td>
+      <td>What is the atomic number of nitrogen in NO?</td>
+      <td>Inorganic chemistry</td>
+      <td>['Chemical equilibrium', 'Inorganic chemistry', 'Buckling Results']</td>
+      <td>The atomic number of nitrogen (N) is 7. This is a fundamental property of nitrogen, indicating it has 7 protons in its nucleus. In the context of nitric oxide (NO), nitrogen's atomic number remains 7, as the molecule consists of one nitrogen atom bonded to one oxygen atom [1].</td>
+      <td>To calculate the bond order and bond length of the nitrogen-oxygen bond in nitric oxide (NO), we will follow these steps:\n\nStep 1: Determine the molecular orbital configuration of NO\nNitrogen (N) has an atomic number of 7, so it has 7 electrons.</td>
+      <td>0.948674</td>
+      <td>0.639257</td>
+      <td>0.333333</td>
+      <td>1.0</td>
+      <td>0.500000</td>
+      <td>0.500000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Excellent</td>
       <td>High</td>
     </tr>
   </tbody>
@@ -203,26 +215,28 @@
         <details>
             <summary>Data Info (df.info)</summary>
             <pre><class 'pandas.core.frame.DataFrame'>
-RangeIndex: 303 entries, 0 to 302
-Data columns (total 14 columns):
+Index: 545 entries, 0 to 544
+Data columns (total 16 columns):
  #   Column              Non-Null Count  Dtype   
 ---  ------              --------------  -----   
- 0   Unnamed: 0          303 non-null    int64   
- 1   user_input          303 non-null    object  
- 2   Expected Source     303 non-null    object  
- 3   response            303 non-null    object  
- 4   reference           303 non-null    object  
- 5   Actual Sources      303 non-null    object  
- 6   answer_relevancy    302 non-null    float64 
- 7   answer_correctness  293 non-null    float64 
- 8   Precision           303 non-null    float64 
- 9   Recall              303 non-null    float64 
- 10  Reranker Score      303 non-null    float64 
- 11  F1 Score            303 non-null    float64 
- 12  relevancy_bucket    302 non-null    category
- 13  correctness_bucket  293 non-null    category
-dtypes: category(2), float64(6), int64(1), object(5)
-memory usage: 29.5+ KB
+ 0   Unnamed: 0          545 non-null    float64 
+ 1   user_input          545 non-null    object  
+ 2   Expected Source     523 non-null    object  
+ 3   Actual Sources      523 non-null    object  
+ 4   response            545 non-null    object  
+ 5   reference           545 non-null    object  
+ 6   answer_relevancy    545 non-null    float64 
+ 7   answer_correctness  541 non-null    float64 
+ 8   Precision           523 non-null    float64 
+ 9   Recall              523 non-null    float64 
+ 10  Reranker Score      523 non-null    float64 
+ 11  F1 Score            523 non-null    float64 
+ 12  Unnamed: 12         0 non-null      float64 
+ 13  Unnamed: 13         0 non-null      float64 
+ 14  relevancy_bucket    545 non-null    category
+ 15  correctness_bucket  541 non-null    category
+dtypes: category(2), float64(9), object(5)
+memory usage: 65.3+ KB
 </pre>
         </details>
 
@@ -238,7 +252,7 @@ memory usage: 29.5+ KB
   <tbody>
     <tr>
       <th>answer_relevancy</th>
-      <td>29</td>
+      <td>177</td>
     </tr>
     <tr>
       <th>answer_correctness</th>
@@ -246,19 +260,19 @@ memory usage: 29.5+ KB
     </tr>
     <tr>
       <th>Precision</th>
-      <td>42</td>
+      <td>8</td>
     </tr>
     <tr>
       <th>Recall</th>
-      <td>42</td>
+      <td>8</td>
     </tr>
     <tr>
       <th>Reranker Score</th>
-      <td>42</td>
+      <td>8</td>
     </tr>
     <tr>
       <th>F1 Score</th>
-      <td>42</td>
+      <td>8</td>
     </tr>
   </tbody>
 </table>
@@ -280,33 +294,33 @@ memory usage: 29.5+ KB
   <tbody>
     <tr>
       <td>answer_relevancy</td>
-      <td>1</td>
-      <td>0.33%</td>
+      <td>0</td>
+      <td>0.00%</td>
     </tr>
     <tr>
       <td>answer_correctness</td>
-      <td>10</td>
-      <td>3.30%</td>
+      <td>4</td>
+      <td>0.73%</td>
     </tr>
     <tr>
       <td>Precision</td>
-      <td>0</td>
-      <td>0.00%</td>
+      <td>22</td>
+      <td>4.04%</td>
     </tr>
     <tr>
       <td>Recall</td>
-      <td>0</td>
-      <td>0.00%</td>
+      <td>22</td>
+      <td>4.04%</td>
     </tr>
     <tr>
       <td>Reranker Score</td>
-      <td>0</td>
-      <td>0.00%</td>
+      <td>22</td>
+      <td>4.04%</td>
     </tr>
     <tr>
       <td>F1 Score</td>
-      <td>0</td>
-      <td>0.00%</td>
+      <td>22</td>
+      <td>4.04%</td>
     </tr>
   </tbody>
 </table>
@@ -317,7 +331,7 @@ memory usage: 29.5+ KB
                 <h4>Rows with Null Values:</h4>
                 <div class="insight" style="background: #fff3cd; border-left-color: #ffc107;">
                     <p>
-                        <b>Total rows with null values:</b> 10<br>
+                        <b>Total rows with null values:</b> 26<br>
                         <b>Showing:</b> First 20 rows
                     </p>
                 </div>
@@ -337,94 +351,184 @@ memory usage: 29.5+ KB
   </thead>
   <tbody>
     <tr>
-      <td>Who bears The Ring Of Power that would enable Sauron to destroy all in Middle Earth?</td>
-      <td>0.831255</td>
+      <td>How can a biocompatible polymer be improved in medical implant applications by coating it with biological material or an antimicrobial agent that will help to reduce infection risk and improve cell adhesion, migrations etc. mes?</td>
+      <td>0.929406</td>
       <td>NaN</td>
       <td>0.333333</td>
       <td>1.0</td>
-      <td>1.000000</td>
+      <td>0.333333</td>
       <td>0.500000</td>
     </tr>
     <tr>
-      <td>When was rice domesticated in China?</td>
-      <td>0.903963</td>
-      <td>NaN</td>
-      <td>1.000000</td>
-      <td>1.0</td>
-      <td>1.000000</td>
-      <td>1.000000</td>
-    </tr>
-    <tr>
-      <td>How old is the earliest known figurative cave painting in Europe?</td>
-      <td>0.975295</td>
-      <td>NaN</td>
-      <td>1.000000</td>
-      <td>1.0</td>
-      <td>1.000000</td>
-      <td>1.000000</td>
-    </tr>
-    <tr>
-      <td>Who invented the movable-type printing press in 1440?</td>
-      <td>0.899746</td>
-      <td>NaN</td>
-      <td>1.000000</td>
-      <td>1.0</td>
-      <td>1.000000</td>
-      <td>1.000000</td>
-    </tr>
-    <tr>
-      <td>When did evidence of widespread control of fire by anatomically modern humans date?</td>
-      <td>0.980590</td>
+      <td>What can be used to enhance the efficiency of solar cells?</td>
+      <td>0.910797</td>
       <td>NaN</td>
       <td>0.500000</td>
       <td>1.0</td>
-      <td>1.000000</td>
+      <td>0.500000</td>
       <td>0.666667</td>
     </tr>
     <tr>
-      <td>How many institutes are there at SymBiosis?</td>
-      <td>0.911776</td>
+      <td>What can have a significant effect on the rate of chemical reaction?</td>
+      <td>0.940988</td>
       <td>NaN</td>
-      <td>0.500000</td>
+      <td>0.250000</td>
       <td>1.0</td>
-      <td>1.000000</td>
-      <td>0.666667</td>
+      <td>0.250000</td>
+      <td>0.400000</td>
     </tr>
     <tr>
-      <td>Which university has campuses across the country at New Delhi, Navi Mumbai, Sangli, Pune, Solapur, Kolhapur, Karad, Satara, and Panchgani?</td>
+      <td>What are some of the diseases that can be effectively targeted by drugs?</td>
+      <td>0.951680</td>
+      <td>NaN</td>
       <td>1.000000</td>
-      <td>NaN</td>
-      <td>0.333333</td>
-      <td>1.0</td>
-      <td>0.500000</td>
-      <td>0.500000</td>
-    </tr>
-    <tr>
-      <td>When did the Government of India grant TMV its status?</td>
-      <td>0.886616</td>
-      <td>NaN</td>
-      <td>0.333333</td>
-      <td>1.0</td>
-      <td>0.333333</td>
-      <td>0.500000</td>
-    </tr>
-    <tr>
-      <td>When was the University established as a State Private University?</td>
-      <td>0.831647</td>
-      <td>NaN</td>
-      <td>0.111111</td>
       <td>1.0</td>
       <td>1.000000</td>
-      <td>0.200000</td>
+      <td>1.000000</td>
     </tr>
     <tr>
-      <td>How many parts are the Student Learning Outcomes (SLOs) in the Agricultural Operations Management program?</td>
+      <td>What did Nicky Cruz battle against?</td>
+      <td>0.917929</td>
+      <td>0.660076</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>0.333333</td>
-      <td>1.0</td>
-      <td>1.000000</td>
-      <td>0.500000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>What kind of foundations are there in cognitive neuroscience?</td>
+      <td>0.978819</td>
+      <td>0.341416</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>" How long has withclrer delighted readers for his classic adventure novels?</td>
+      <td>0.901986</td>
+      <td>0.892070</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>What is a martial art used for health, meditation and self-defense?</td>
+      <td>0.967241</td>
+      <td>0.581296</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>How many web videos complement the 300 illustrations in The Complete Idiot's Guide to Tâ€™AI Chi/QinGong book by showing how much of it works on their website?</td>
+      <td>0.000000</td>
+      <td>0.738093</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>What book is the standalone prequel to?</td>
+      <td>0.884162</td>
+      <td>0.730166</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>Who helped to salvage a B-29 Superfortress that crashed in Greenland?</td>
+      <td>0.000000</td>
+      <td>0.804485</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>What makes this encyclopedia a valuable resource for students of language and literature?</td>
+      <td>0.932238</td>
+      <td>0.618603</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>What is an American epic about love, hope and loss set against background of Civil War history. Who are lovers at centre in this novel?</td>
+      <td>0.929931</td>
+      <td>0.558773</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>Where is Tendai practice located in Japan compared to other forms and types used by Japanese Buddhist teachers, such as Homan devotional school (Bakhtis) schools or what type art does one use for paintings depicting mantra?</td>
+      <td>0.952895</td>
+      <td>0.542902</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>How many white men are accused of the crime that killed their motherâ€™s father on her deathbed, according to authorities?</td>
+      <td>0.000000</td>
+      <td>0.199618</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>What year was his daughter raped by him and another black man in Mississippi town?</td>
+      <td>0.000000</td>
+      <td>0.186397</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>Who is holding heiress Julie Rose hostage?</td>
+      <td>0.000000</td>
+      <td>0.192236</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>) How do you keep the girl safe until someone else gets involved with your book and finds out who's behind her kidnapping?</td>
+      <td>0.000000</td>
+      <td>0.197262</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>What is one of the classics from 20th century?</td>
+      <td>0.896154</td>
+      <td>0.393546</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>" Who wrote This And Magic Life as an inspiring portrait of Southern families.?</td>
+      <td>0.889974</td>
+      <td>0.547346</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
     </tr>
   </tbody>
 </table>
@@ -450,35 +554,35 @@ memory usage: 29.5+ KB
   <tbody>
     <tr>
       <th>count</th>
-      <td>302.000000</td>
-      <td>293.000000</td>
-      <td>303.000000</td>
-      <td>303.000000</td>
-      <td>303.000000</td>
-      <td>303.000000</td>
+      <td>545.000000</td>
+      <td>541.000000</td>
+      <td>523.000000</td>
+      <td>523.000000</td>
+      <td>523.000000</td>
+      <td>523.000000</td>
     </tr>
     <tr>
       <th>mean</th>
-      <td>0.841982</td>
-      <td>0.518150</td>
-      <td>0.645310</td>
-      <td>0.861386</td>
-      <td>0.755257</td>
-      <td>0.703212</td>
+      <td>0.618431</td>
+      <td>0.527739</td>
+      <td>0.740038</td>
+      <td>0.984704</td>
+      <td>0.825924</td>
+      <td>0.802076</td>
     </tr>
     <tr>
       <th>std</th>
-      <td>0.278785</td>
-      <td>0.175354</td>
-      <td>0.384551</td>
-      <td>0.346115</td>
-      <td>0.375213</td>
-      <td>0.355416</td>
+      <td>0.431846</td>
+      <td>0.208870</td>
+      <td>0.326079</td>
+      <td>0.122846</td>
+      <td>0.288207</td>
+      <td>0.262528</td>
     </tr>
     <tr>
       <th>min</th>
       <td>0.000000</td>
-      <td>0.186832</td>
+      <td>0.184126</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
@@ -486,17 +590,17 @@ memory usage: 29.5+ KB
     </tr>
     <tr>
       <th>25%</th>
-      <td>0.883634</td>
-      <td>0.383530</td>
-      <td>0.333333</td>
+      <td>0.000000</td>
+      <td>0.381522</td>
+      <td>0.500000</td>
       <td>1.000000</td>
       <td>0.500000</td>
-      <td>0.500000</td>
+      <td>0.666667</td>
     </tr>
     <tr>
       <th>50%</th>
-      <td>0.933326</td>
-      <td>0.498586</td>
+      <td>0.882009</td>
+      <td>0.514232</td>
       <td>1.000000</td>
       <td>1.000000</td>
       <td>1.000000</td>
@@ -504,8 +608,8 @@ memory usage: 29.5+ KB
     </tr>
     <tr>
       <th>75%</th>
-      <td>0.962559</td>
-      <td>0.615400</td>
+      <td>0.942601</td>
+      <td>0.676182</td>
       <td>1.000000</td>
       <td>1.000000</td>
       <td>1.000000</td>
@@ -514,7 +618,7 @@ memory usage: 29.5+ KB
     <tr>
       <th>max</th>
       <td>1.000000</td>
-      <td>0.991078</td>
+      <td>0.998562</td>
       <td>1.000000</td>
       <td>1.000000</td>
       <td>1.000000</td>
@@ -574,8 +678,8 @@ memory usage: 29.5+ KB
 
         <div class="insight">
             <p>
-                <b>Hallucinations Detected:</b> 79 cases
-                (26.07% of total responses)
+                <b>Hallucinations Detected:</b> 60 cases
+                (11.01% of total responses)
             </p>
             <p>
                 <b>Definition:</b> Responses with high semantic relevancy (>0.8)
@@ -583,8 +687,8 @@ memory usage: 29.5+ KB
                     
                     <p>
                         <b>Average Metrics in Hallucination Cases:</b><br>
-                        - Answer Relevancy: 0.923<br>
-                        - Answer Correctness: 0.334
+                        - Answer Relevancy: 0.919<br>
+                        - Answer Correctness: 0.331
                     </p>
                     
         </div>
@@ -607,179 +711,179 @@ memory usage: 29.5+ KB
   </thead>
   <tbody>
     <tr>
-      <td>What is used to study the vibrational frequencies of molecules such as carbon dioxide?</td>
-      <td>Infrared spectroscopy is a powerful tool used to study the vibrational frequencies of molecules, including carbon dioxide (CO2). This technique leverages the interaction between infrared light and the molecular vibrations to provide insights into the molecular structure and dynamics. By analyzing the absorption of infrared radiation at specific frequencies, scientists can identify the unique vibrational modes of molecules, which are characteristic of their chemical bonds and molecular geometry.\n\nIn the case of CO2, infrared spectroscopy reveals several vibrational modes. CO2 is a linear molecule with three atoms and exhibits four distinct vibrational modes: two bending modes and two stretching modes. The vibrational frequencies of CO2 are as follows:\n\n1. **Symmetric stretching mode (ν1)**: This mode occurs at approximately 1330 cm⁻¹. In this mode, both oxygen atoms move away from or towards the central carbon atom simultaneously. However, the net dipole moment of the molecule does not change, making this mode not IR active and thus not observable in the infrared spectrum [1].\n\n2. **Bending mode (ν2)**: This mode occurs at approximately 667 cm⁻¹. Here, the oxygen atoms move in a plane perpendicular to the molecular axis, causing a change in the dipole moment. This mode is IR active and can be observed in the infrared spectrum [1].\n\n3. **Asymmetric stretching mode (ν3)**: This mode occurs at approximately 2349 cm⁻¹. In this mode, one oxygen atom moves away from the central carbon atom while the other moves towards it, resulting in a change in the dipole moment. This mode is IR active and can be observed in the infrared spectrum [1].\n\n4. **Another bending mode (ν4)**: This mode is degenerate to the ν2 mode and occurs at the same frequency of approximately 667 cm⁻¹ [1].\n\nTherefore, the observed IR active vibrational frequencies of CO2 are approximately 667 cm⁻¹ (bending modes) and 2349 cm⁻¹ (asymmetric stretching mode) [1].\n\nInfrared spectroscopy is widely used in various fields, including chemistry, materials science, and environmental monitoring, to analyze the vibrational properties of molecules. It provides valuable information about molecular structures, chemical bonding, and dynamic processes, making it an essential tool in both research and industrial applications. If you are interested in learning more about the applications of infrared spectroscopy or the vibrational modes of other molecules, feel free to ask.</td>
-      <td>Infrared spectroscopy is used to study the vibrational frequencies of molecules, such as carbon dioxide (CO2).</td>
-      <td>0.876093</td>
-      <td>0.311857</td>
+      <td>What is a key factor in the stability of colloidal suspensions?</td>
+      <td>Zeta potential is a key factor in determining the stability of colloidal suspensions. It is a measure of the electrical charge on the surface of colloidal particles, which affects the interactions between the particles in the suspension. A higher zeta potential (either positive or negative) indicates a greater repulsive force between particles, which can prevent aggregation and sedimentation, leading to a more stable colloidal suspension [1][3]. The stability of colloidal suspensions is influenced by the balance between attractive (e.g., van der Waals forces) and repulsive (e.g., electrostatic forces) interactions between particles. When the repulsive forces are dominant, the particles remain dispersed and the suspension is stable. However, when the attractive forces are dominant, the particles tend to aggregate, leading to instability and eventually sedimentation or phase separation [1].\n\nThe zeta potential of colloidal particles can be influenced by the pH of the suspension. By adjusting the pH, it is possible to control the surface charge of the particles and optimize the repulsive forces between them. This can be achieved by adding acid or base to the suspension, or by using buffering agents to maintain a specific pH range [1][3]. Additionally, the addition of electrolytes can affect the zeta potential of colloidal particles. The presence of ions in the suspension can lead to the compression of the electrical double layer surrounding the particles, which can alter the zeta potential and the stability of the suspension. The type and concentration of electrolytes should be carefully chosen to optimize the desired effect on zeta potential and colloidal stability [1].\n\nIn summary, zeta potential plays a crucial role in the stability of colloidal suspensions. By measuring and controlling zeta potential through various techniques, it is possible to optimize the stability of colloidal systems for various applications, such as drug delivery, coatings, and nanotechnology [1][3].</td>
+      <td>Zeta potential is a key factor in determining the stability of colloidal suspensions.</td>
+      <td>0.902317</td>
+      <td>0.339019</td>
+    </tr>
+    <tr>
+      <td>What are the steps that can be followed to develop a process for sustainable production of fragrances?</td>
+      <td>The provided sources outline a comprehensive approach to developing a sustainable process for the production of fragrances. Here are the key steps that can be followed, based on the information provided:\n\n1. **Identify sustainable raw materials**: The first step is to identify renewable and biodegradable raw materials that can be used as the primary source for the fragrances. These can include plant-based materials, such as essential oils, extracts, and natural isolates, as well as biotechnological sources, such as microorganisms and enzymes [1].\n\n2. **Implement green chemistry principles**: Green chemistry principles should be integrated into the development and production process. This includes using energy-efficient processes, minimizing waste, and using non-toxic and biodegradable solvents and catalysts [1].\n\n3. **Utilize biotechnological approaches**: Biotechnological methods, such as metabolic engineering and synthetic biology, can be used to produce fragrance compounds in microorganisms. This can be achieved by engineering microorganisms, such as bacteria, yeast, or fungi, to produce the desired fragrance compounds through fermentation processes. This approach can reduce the need for chemical synthesis and the use of non-renewable resources [1].\n\n4. **Employ enzymatic catalysis**: Enzymes can be used as biocatalysts to convert renewable raw materials into fragrance compounds. Enzymes are highly selective and efficient catalysts that can perform reactions under mild conditions, reducing the need for hazardous chemicals and high energy consumption [1].\n\n5. **Implement waste reduction and recycling strategies**: Waste reduction strategies should be implemented in the production process, such as recycling and reusing solvents, catalysts, and other materials. This can help minimize the environmental impact and reduce the overall cost of production [1].\n\n6. **Conduct a life cycle assessment (LCA)**: A life cycle assessment of the fragrance production process should be conducted to evaluate the environmental impact and identify areas for improvement. This can help guide the development of more sustainable and eco-friendly production methods [1].\n\n7. **Collaborate with stakeholders**: Collaboration with stakeholders, such as suppliers, manufacturers, and consumers, can promote the use of sustainable and environmentally friendly fragrances. This can help create a demand for green fragrances and encourage the adoption of sustainable practices throughout the supply chain [1].\n\n8. **Ensure regulatory compliance**: The production process should comply with relevant environmental and safety regulations, such as the Registration, Evaluation, Authorization, and Restriction of Chemicals (REACH) in the European Union [1].\n\n9. **Continuously improve the production process**: The production process should be regularly reviewed and updated to incorporate new technologies, methods, and materials that can further improve the sustainability and environmental performance of the fragrance production [1].\n\nBy following these steps, a process for the efficient and cost-effective production of fragrances using sustainable and environmentally friendly methods can be developed, reducing the environmental impact and promoting a greener future for the fragrance industry.\n\nWould you like to know more about this topic, such as specific examples of sustainable raw materials or the latest advancements in biotechnological approaches for fragrance production?</td>
+      <td>To develop a process for the efficient and cost-effective production of fragrances using sustainable and environmentally friendly methods, we can follow these steps:\n\n1.</td>
+      <td>0.987135</td>
+      <td>0.326760</td>
+    </tr>
+    <tr>
+      <td>What can cause damage to ecosystems?</td>
+      <td>The provided sources discuss several factors that can cause damage to ecosystems, including air pollution, nuclear waste, and agricultural practices. Here's a summary of the key points:\n\n### Air Pollution\nAir pollutants such as sulfur dioxide (SO₂), nitrogen oxides (NOₓ), and particulate matter (PM) can have significant adverse effects on ecosystems. These pollutants can lead to:\n\n1. **Acid Rain**: Sulfur dioxide and nitrogen oxides can react with water vapor in the atmosphere to form acid rain. Acid rain can lower the pH of water bodies, making them inhospitable for many aquatic species. It can also leach nutrients from the soil, affecting plant growth and reducing agricultural productivity [1].\n\n2. **Smog Formation**: Sulfur dioxide and nitrogen oxides can react with other compounds in the atmosphere to form smog, which is a mixture of particulate matter and ground-level ozone. Smog can cause respiratory problems in humans and animals, reduce visibility, and damage crops and other vegetation [1].\n\n3. **Ozone Depletion**: Chlorofluorocarbons (CFCs) can lead to ozone depletion through a series of chemical reactions. Ozone in the stratosphere plays a crucial role in absorbing harmful ultraviolet-B (UV-B) radiation from the sun. With less ozone in the stratosphere, more UV-B radiation reaches the Earth's surface, leading to several harmful effects on ecosystems, including damage to phytoplankton and terrestrial plants, which can reduce crop yields and affect the overall health of ecosystems [5].\n\n### Nuclear Waste\nNuclear waste can have long-term effects on the environment, including:\n\n1. **Soil and Water Contamination**: Radioactive materials from nuclear waste can leach into the soil and groundwater, contaminating them and making them unsafe for use by humans, animals, and plants [2].\n\n2. **Bioaccumulation in the Food Chain**: Radioactive materials can accumulate in the tissues of plants and animals, leading to increased radiation exposure for organisms higher up the food chain, including humans [2].\n\n3. **Damage to Ecosystems**: The presence of nuclear waste can disrupt ecosystems, killing off sensitive species and altering the balance of the environment [2].\n\n### Agricultural Practices\nAgriculture can both cause and be sensitive to environmental degradation, such as:\n\n1. **Biodiversity Loss**: Agriculture can lead to the loss of biodiversity, as species struggle to adapt to changing environmental conditions [3].\n\n2. **Desertification**: Agricultural practices can contribute to desertification, which is the degradation of land in arid, semi-arid, and dry sub-humid areas [3].\n\n3. **Soil Degradation**: Agriculture can cause soil degradation, which can reduce crop yields and affect the overall health of ecosystems [3].\n\n### Mitigation Measures\nTo mitigate these ecological impacts, industries and governments can implement various measures, such as:\n\n1. **Pollution Control**: Industries can implement pollution control measures, such as using scrubbers to remove sulfur dioxide from emissions, employing low-sulfur fuels, and optimizing the efficiency of the production process [1].\n\n2. **Stricter Regulations**: Governments can enforce stricter regulations on emissions and promote the use of cleaner technologies [1].\n\n3. **Proper Storage and Disposal of Nuclear Waste**: Proper storage and disposal methods, such as deep geological repositories, encapsulation, and secure storage facilities, can help minimize the impacts of nuclear waste on the environment [2].\n\n4. **Sustainable Agricultural Practices**: Implementing sustainable agricultural practices can help reduce the environmental impact of agriculture and promote the health of ecosystems [3].\n\nIn conclusion, damage to ecosystems can be caused by various factors, including air pollution, nuclear waste, and agricultural practices. Implementing mitigation measures can help reduce these impacts and promote the health of ecosystems. Would you like to know more about specific mitigation strategies or the long-term effects of these factors on ecosystems?</td>
+      <td>Damage to ecosystems: The presence of nuclear waste can disrupt ecosystems, killing off sensitive species and altering the balance of the environment.</td>
+      <td>0.912005</td>
+      <td>0.316056</td>
+    </tr>
+    <tr>
+      <td>What is a phenomenon that occurs when an object emits light after being exposed to it'?</td>
+      <td>The phenomenon you're referring to is called **phosphorescence**. This occurs when certain materials absorb energy from a light source, exciting their electrons to a higher energy state. Unlike fluorescence, where electrons quickly return to their ground state and emit light almost immediately, phosphorescence involves a slower return to the ground state, allowing the material to emit light over a longer period of time [1].\n\nThe mechanism behind phosphorescence involves the transition of electrons between different spin states. When the material absorbs photons, electrons are excited to a higher energy state called the singlet state. Some of these electrons can undergo a process called intersystem crossing, where they transition to a triplet state with a different spin orientation. The transition from the triplet state back to the ground state is spin-forbidden, meaning it is less likely to occur and takes longer. This results in the slow release of energy as light, which we observe as phosphorescence [1].\n\nPhosphorescent materials have various practical applications, including glow-in-the-dark products, emergency lighting, and energy-efficient lighting systems [1].\n\nWould you like to know more about the applications of phosphorescent materials or the differences between phosphorescence and other light-emitting phenomena?</td>
+      <td>Phosphorescent materials emit light after being exposed to a photon source due to a phenomenon called phosphorescence.</td>
+      <td>0.893640</td>
+      <td>0.378471</td>
+    </tr>
+    <tr>
+      <td>What can change the equilibrium position of a reaction?</td>
+      <td>The equilibrium position of a chemical reaction can be influenced by several factors, primarily through the application of Le Chatelier's principle, which states that if a system at equilibrium is subjected to a change, the system will adjust to counteract that change and re-establish equilibrium. Here are the key factors that can alter the equilibrium position:\n\n### 1. **Concentration Changes**\n- **Adding Reactants**: Increasing the concentration of reactants will shift the equilibrium to the right, favoring the formation of products. This is because the system will respond to the increased concentration by consuming more reactants to re-establish equilibrium [4][5][7].\n- **Adding Products**: Conversely, increasing the concentration of products will shift the equilibrium to the left, favoring the formation of reactants. The system will respond by consuming more products to counteract the change [4][5][8].\n\n### 2. **Pressure Changes**\n- **Gaseous Reactions**: For reactions involving gases, increasing the pressure will shift the equilibrium toward the side with fewer moles of gas. This is because the system will respond to the increased pressure by reducing the number of gas molecules to counteract the change [2][5].\n- **Decreasing Pressure**: Conversely, decreasing the pressure will shift the equilibrium toward the side with more moles of gas. The system will respond by increasing the number of gas molecules to counteract the change [2][5].\n\n### 3. **Volume Changes**\n- **Increasing Volume**: Increasing the volume of the container for a gaseous reaction will decrease the pressure, shifting the equilibrium toward the side with more moles of gas to increase the pressure and counteract the change [2].\n- **Decreasing Volume**: Decreasing the volume will increase the pressure, shifting the equilibrium toward the side with fewer moles of gas to decrease the pressure and counteract the change [2].\n\n### 4. **Temperature Changes**\n- **Exothermic Reactions**: For exothermic reactions (reactions that release heat), increasing the temperature will shift the equilibrium toward the reactants, absorbing the added heat. Conversely, decreasing the temperature will shift the equilibrium toward the products, releasing more heat [6].\n- **Endothermic Reactions**: For endothermic reactions (reactions that absorb heat), increasing the temperature will shift the equilibrium toward the products, absorbing the added heat. Conversely, decreasing the temperature will shift the equilibrium toward the reactants, releasing heat [6].\n\n### 5. **pH Changes**\n- **Acid-Base Equilibria**: Changing the pH of a solution can affect the equilibrium position of a redox reaction involving a weak acid and its conjugate base. For example, increasing the pH (making the solution more basic) will shift the equilibrium toward the reactants, while decreasing the pH (making the solution more acidic) will shift the equilibrium toward the products [1].\n\n### 6. **Catalysts**\n- **No Effect on Equilibrium Position**: Adding a catalyst to a reaction does not affect the equilibrium position. Catalysts speed up the rate at which the reaction reaches equilibrium by lowering the activation energy but do not change the thermodynamics of the reaction, meaning the equilibrium constant (K) remains the same [3][5].\n\n### 7. **Inert Gas Addition**\n- **No Effect on Equilibrium**: Adding an inert gas (a gas that does not participate in the reaction) to a gaseous reaction at constant volume will not affect the equilibrium position. However, if the volume is changed, the equilibrium position may shift according to the pressure changes described above.\n\nIn summary, the equilibrium position of a reaction can be altered by changes in concentration, pressure, volume, temperature, and pH. These changes cause the system to adjust to counteract the applied stress and re-establish equilibrium. However, the addition of a catalyst does not affect the equilibrium position, only the rate at which equilibrium is reached.</td>
+      <td>Changing the pH of a solution can affect the equilibrium position of a redox reaction involving a weak acid and its conjugate base by altering the concentrations of the acid and its conjugate base.</td>
+      <td>0.944831</td>
+      <td>0.340995</td>
+    </tr>
+    <tr>
+      <td>What is the limiting reactant?</td>
+      <td>The concept of a limiting reactant is fundamental in chemistry, particularly in stoichiometry, which deals with the quantitative relationships between reactants and products in chemical reactions. The limiting reactant, also known as the limiting reagent, is the reactant that is completely consumed first in a chemical reaction, thereby determining the maximum amount of product that can be formed. This concept is crucial for predicting the yield of a reaction and understanding the efficiency of chemical processes.\n\nThe identification of the limiting reactant involves comparing the mole ratio of the reactants to the stoichiometric ratio required by the balanced chemical equation. The reactant that is present in an amount insufficient to react completely with the other reactants is the limiting reactant. The other reactants, which are present in excess, are referred to as excess reactants.\n\nFor example, in a reaction involving aluminum (Al) and oxygen (O2) to form aluminum oxide (Al2O3), the balanced chemical equation is 4Al + 3O2 → 2Al2O3. If the mole ratio of Al to O2 is less than the stoichiometric ratio of 4:3, then Al is the limiting reactant. This means that all the Al will be consumed, and the amount of Al2O3 produced will be determined by the amount of Al available.\n\nThe concept of the limiting reactant is not only important in theoretical chemistry but also has practical applications in various fields such as industrial chemistry, environmental science, and biochemistry. Understanding the limiting reactant allows chemists to optimize reaction conditions, minimize waste, and maximize the yield of desired products.\n\nIn summary, the limiting reactant is a key concept in stoichiometry that helps predict the outcome of chemical reactions and optimize the use of reactants. It is essential for both theoretical understanding and practical applications in chemistry.</td>
+      <td>To calculate the standard enthalpy change for the reaction, we need to first determine the heat released or absorbed during the reaction (q) and then divide it by the moles of the limiting reactant.</td>
+      <td>0.902201</td>
+      <td>0.205241</td>
     </tr>
     <tr>
       <td>What is the VSEPR geometry of methane?</td>
-      <td>The VSEPR (Valence Shell Electron Pair Repulsion) geometry of methane (CH4) is tetrahedral. This molecular geometry is characterized by four electron groups surrounding the central carbon atom, which is bonded to four hydrogen atoms. The tetrahedral arrangement allows for the maximum separation between the electron pairs, minimizing electron-electron repulsion and stabilizing the molecule [1][2].\n\nThe carbon atom in methane undergoes sp3 hybridization, forming four equivalent sp3 hybrid orbitals. These hybrid orbitals are directed toward the vertices of a tetrahedron, with the carbon atom at the center. Each of the four hydrogen atoms overlaps with one of the carbon's sp3 hybrid orbitals, forming four sigma (σ) bonds. These σ bonds result from the head-on overlap of the hydrogen 1s orbitals with the carbon sp3 hybrid orbitals. The bond angles between the hydrogen-carbon-hydrogen (H-C-H) atoms are approximately 109.5 degrees, which is the ideal tetrahedral bond angle [1][2].\n\nThe tetrahedral geometry of methane can be explained by the principle of minimum energy, where the electrons in the molecule repel each other due to their negative charges. The tetrahedral arrangement allows for the maximum separation between the electron pairs, minimizing the electron-electron repulsion and stabilizing the molecule [2].\n\nIn summary, the VSEPR geometry of methane is tetrahedral, with a bond angle of approximately 109.5 degrees. This geometry is a result of the sp3 hybridization of the carbon atom and the formation of sigma bonds with the hydrogen atoms, which minimizes electron-electron repulsion and stabilizes the molecule. Further exploration could involve examining the implications of this geometry on the physical and chemical properties of methane.</td>
+      <td>The VSEPR (Valence Shell Electron Pair Repulsion) geometry of methane (CH4) is tetrahedral. This molecular geometry is characterized by four electron groups surrounding the central carbon atom, which is bonded to four hydrogen atoms. The tetrahedral arrangement ensures that the electron pairs are as far apart as possible, minimizing electron-electron repulsion and stabilizing the molecule [1][2].\n\nThe carbon atom in methane undergoes sp3 hybridization, forming four equivalent sp3 hybrid orbitals. These hybrid orbitals are directed toward the vertices of a tetrahedron, with the carbon atom at the center. Each of the four hydrogen atoms overlaps with one of the carbon's sp3 hybrid orbitals, forming four sigma (σ) bonds. The bond angles between the hydrogen-carbon-hydrogen (H-C-H) atoms are approximately 109.5 degrees, which is the ideal tetrahedral bond angle [2].\n\nIn summary, the tetrahedral geometry of methane is a result of the sp3 hybridization of the carbon atom and the formation of sigma bonds with hydrogen atoms, all of which contribute to the molecule's stability by minimizing electron-electron repulsion [1][2]. Would you like to know more about the bonding in methane or the principles behind VSEPR theory?</td>
       <td>The VSEPR geometry of methane (CH4) is tetrahedral.</td>
-      <td>0.942626</td>
-      <td>0.327750</td>
+      <td>0.936573</td>
+      <td>0.309697</td>
+    </tr>
+    <tr>
+      <td>What are constitutional isomers?</td>
+      <td>Constitutional isomers, also known as structural isomers, are compounds that have the same molecular formula but different arrangements of atoms in their molecular structures. This means that while they contain the same number and types of atoms, the way these atoms are connected differs, leading to distinct chemical properties and behaviors.\n\nFor example, butane and 2-methylpropane are constitutional isomers. Both have the molecular formula C4H10, but their structures are different. Butane has a straight chain of four carbon atoms, while 2-methylpropane has a branched structure with three carbon atoms in the main chain and one methyl group (CH3) attached to the second carbon atom. This difference in structure leads to variations in their physical properties, such as boiling points. Butane has a boiling point of -0.5°C (31.1°F), while 2-methylpropane has a boiling point of -11.7°C (10.9°F). The difference in boiling points is due to the varying strengths of London dispersion forces between the molecules, which are influenced by their structural arrangements [1].\n\nIn summary, constitutional isomers are compounds with the same molecular formula but different connectivity of atoms, resulting in unique chemical and physical properties.</td>
+      <td>Butane and 2-methylpropane are constitutional isomers.</td>
+      <td>0.949950</td>
+      <td>0.295622</td>
+    </tr>
+    <tr>
+      <td>How can higher molecular weight Polymers exhibit better mechanical properties than lower ones on the market today?</td>
+      <td>The molecular structure of a polymer plays a crucial role in determining its mechanical properties, which in turn affect its suitability for various applications. Several factors related to the molecular structure of polymers influence their mechanical properties, including molecular weight, degree of polymerization, chain architecture, and the presence of functional groups or cross-linking.\n\nHigher molecular weight polymers typically exhibit better mechanical properties, such as increased tensile strength and toughness. This is because longer polymer chains can entangle and interact more effectively, leading to stronger intermolecular forces [1]. The degree of polymerization, which is directly related to molecular weight, also plays a significant role in determining the mechanical properties of a polymer. A higher degree of polymerization results in longer polymer chains, which can entangle and interact more effectively, leading to stronger intermolecular forces and improved mechanical properties [1].\n\nThe arrangement of polymer chains, such as linear, branched, or network structures, can significantly impact the mechanical properties of the material. For example, linear polymers tend to be more crystalline and have higher tensile strength, while branched polymers may have better impact resistance due to their ability to dissipate energy through their branches [1]. The presence of functional groups within the polymer chain can affect the mechanical properties by introducing additional intermolecular forces, such as hydrogen bonding or dipole-dipole interactions. These interactions can lead to increased strength and toughness, as well as improved biocompatibility and bioactivity [1].\n\nCross-linked polymers have covalent bonds between their chains, which can significantly improve their mechanical properties, such as tensile strength, modulus, and resistance to deformation. However, excessive cross-linking can lead to brittleness and reduced flexibility [1]. To optimize the mechanical properties of polymers for specific applications, several strategies can be employed, such as tailoring the molecular weight and degree of polymerization, modifying the chain architecture, incorporating functional groups, and controlling cross-linking [1].\n\nIn summary, the molecular structure of a polymer, including its molecular weight, degree of polymerization, chain architecture, and the presence of functional groups or cross-linking, plays a crucial role in determining its mechanical properties. By carefully considering these factors and employing appropriate strategies, it is possible to optimize the mechanical properties of polymers for specific applications, such as implants or drug delivery systems [1].</td>
+      <td>Molecular weight and degree of polymerization: Higher molecular weight polymers typically exhibit better mechanical properties, such as increased tensile strength and toughness.</td>
+      <td>0.893385</td>
+      <td>0.352696</td>
+    </tr>
+    <tr>
+      <td>What is a complex process by which the polypeptide chain folds into its biologically active three-dimensional structure?</td>
+      <td>Protein folding is a complex process by which a polypeptide chain folds into its biologically active three-dimensional structure. This process is crucial for the protein to function correctly within the cell. Several factors influence protein folding, and changes in these factors can significantly impact the overall structure and function of the protein.\n\n### Factors Affecting Protein Folding\n\n1. **Amino Acid Sequence**:\n   The primary structure of a protein, which is the sequence of amino acids, determines its final folded structure. The interactions between amino acids, such as hydrogen bonding, hydrophobic interactions, and electrostatic interactions, drive the folding process. Changes in the amino acid sequence can lead to misfolding or altered folding, which may affect protein function [1].\n\n2. **Temperature**:\n   Temperature affects the kinetic energy of molecules and the stability of the folded protein. At low temperatures, protein folding may be slow and incomplete, while at high temperatures, proteins may denature and lose their native structure. The optimal temperature for protein folding varies depending on the protein and its environment [1].\n\n3. **pH**:\n   The pH of the environment affects the ionization state of amino acid side chains, which in turn influences protein folding. Changes in pH can disrupt electrostatic interactions and hydrogen bonding, leading to misfolding or denaturation of the protein. Each protein has an optimal pH range for folding and function [1].\n\n4. **Ionic Strength**:\n   The concentration of ions in the solution can affect protein folding by influencing electrostatic interactions between charged amino acid side chains. High ionic strength can shield these interactions, while low ionic strength can enhance them. Changes in ionic strength can alter protein folding and stability [1].\n\n5. **Molecular Chaperones**:\n   These are proteins that assist in the folding of other proteins by preventing aggregation and promoting the correct folding pathway. Changes in the availability or function of molecular chaperones can lead to protein misfolding and aggregation, which is associated with several diseases, such as Alzheimer's and Parkinson's [1].\n\nUnderstanding these factors is essential for comprehending how proteins achieve their functional forms and how disruptions in this process can lead to diseases. Further research into protein folding mechanisms could provide insights into developing treatments for protein-misfolding diseases. Would you like to know more about the role of molecular chaperones in protein folding or the impact of protein misfolding on human health?</td>
+      <td>Protein folding is a complex process by which a polypeptide chain folds into its biologically active three-dimensional structure.</td>
+      <td>0.827076</td>
+      <td>0.339543</td>
     </tr>
     <tr>
       <td>What isotope used as a tracer in PET scans?</td>
-      <td>The provided sources contain information about the isotope used as a tracer in Positron Emission Tomography (PET) scans. Carbon-11 is a radioactive isotope that serves as a tracer in PET scans. It undergoes beta-plus decay, also known as positron emission, where a proton in the nucleus of the carbon-11 atom is converted into a neutron, releasing a positron (a positively charged electron) and a neutrino [1]. When the emitted positron encounters an electron in the surrounding tissue, they annihilate each other, producing two gamma rays (high-energy photons) that travel in opposite directions. These gamma rays have an energy of 511 keV, which is a characteristic energy for positron-electron annihilation events [1].\n\nThe PET scanner is equipped with a ring of detectors that are sensitive to gamma rays. When the two gamma rays from the positron-electron annihilation event reach the detectors, they create an electronic signal. The scanner's computer system analyzes the signals from the detectors and calculates the location of the annihilation event within the body. By collecting data from numerous such events, the PET scanner can generate a detailed image of the distribution of the carbon-11 tracer within the body, providing valuable information about the metabolic processes and other functions in the tissues being examined [1].\n\nIn summary, carbon-11 is a crucial isotope in PET scans due to its ability to decay and produce detectable gamma rays, which are then used to create detailed images of the body's internal processes. This information is invaluable for diagnosing diseases, monitoring organ function, and evaluating the effectiveness of treatments. If you would like to know more about the applications of PET scans or the safety precautions involved in handling radioactive isotopes, feel free to ask.</td>
+      <td>Carbon-11 is a radioactive isotope commonly used as a tracer in Positron Emission Tomography (PET) scans. This isotope decays through a process known as beta-plus decay, or positron emission. During this decay, a proton in the nucleus of a carbon-11 atom is converted into a neutron, releasing a positron (a positively charged electron) and a neutrino. When the emitted positron encounters an electron in the surrounding tissue, they annihilate each other, producing two gamma rays (high-energy photons) that travel in opposite directions. These gamma rays have an energy of 511 keV, which is characteristic of positron-electron annihilation events [1].\n\nThe PET scanner is equipped with a ring of detectors sensitive to gamma rays. When the two gamma rays from the positron-electron annihilation event reach the detectors, they create an electronic signal. The scanner's computer system analyzes these signals to calculate the location of the annihilation event within the body. By collecting data from numerous such events, the PET scanner can generate a detailed image of the distribution of the carbon-11 tracer within the body. This provides valuable information about metabolic processes and other functions in the tissues being examined [1].\n\nRadioactive isotopes, including carbon-11, are used in various imaging techniques such as PET and Single-Photon Emission Computed Tomography (SPECT). In these techniques, a small amount of the radioisotope is introduced into the body, usually by injection. The radioisotope emits radiation that can be detected by specialized cameras, creating images of the distribution of the radioisotope within the body. This can help diagnose diseases, monitor organ function, and evaluate the effectiveness of treatments [2].\n\nIn summary, carbon-11 is a crucial isotope in medical imaging, particularly in PET scans, due to its ability to provide detailed images of biological processes. Its use in PET scans allows for the visualization of metabolic activities and other functions within the body, making it an invaluable tool in modern medicine.\n\nWould you like to know more about the applications of radioactive isotopes in medical imaging or other related topics?</td>
       <td>Carbon-11 is a radioactive isotope used as a tracer in Positron Emission Tomography (PET) scans.</td>
-      <td>0.951733</td>
-      <td>0.363215</td>
+      <td>0.872477</td>
+      <td>0.313723</td>
     </tr>
     <tr>
-      <td>What is the initial concentration of AgNO3?</td>
-      <td>The provided sources do not contain any information about the initial concentration of AgNO3. However, the concentration of Ag+ ions in the solution is approximately 0.00176 M [1]. This value was calculated using the Nernst equation and the initial concentration of AgNO3, which was assumed to be 0.05 M [1]. Therefore, it can be inferred that the initial concentration of AgNO3 is 0.05 M.</td>
-      <td>To calculate the concentration of Ag+ ions in the solution, we can use the Nernst equation:\n\nE = EÌâå¡ - (RT/nF) * ln(Q)\n\nWhere:\nE = measured potential (0.53 V)\nEÌâå¡ = standard reduction potential for Ag+/Ag (0.7996 V)\nR = gas constant (8.314 J/molÌâåáK)\nT = temperature (assume 298 K, room temperature)\nn = number of electrons transferred (1 for Ag+/Ag)\nF = Faraday's constant (96485 C/mol)\nQ = reaction quotient, which is [Ag+]/[Ag]\n\nFirst, let's solve for Q:\n\n0.53 V = 0.7996 V - (8.314 J/molÌâåáK * 298 K / (1 * 96485 C/mol)) * ln(Q)\n\nNow, let's isolate ln(Q):\n\nln(Q) = (0.7996 V - 0.53 V) * (1 * 96485 C/mol) / (8.314 J/molÌâåáK * 298 K)\nln(Q) = 3.312\n\nNow, exponentiate both sides to solve for Q:\n\nQ = e^3.312\nQ = 27.45\n\nSince Q = [Ag+]/[Ag], and we know the initial concentration of AgNO3 is 0.05 M, we can set up the following equation:\n\n27.45 = [Ag+]/(0.05 M - [Ag+])\n\nNow, solve for [Ag+]:\n\n[Ag+] = 0.05 M / (1 + 27.45)\n[Ag+] = 0.05 M / 28.45\n[Ag+] Ì¢åäåö 0.00176 M\n\nSo, the concentration of Ag+ ions in the solution is approximately 0.00176 M.</td>
-      <td>0.952851</td>
-      <td>0.371643</td>
+      <td>What can significantly affect the structure and function of proteins?</td>
+      <td>The structure and function of proteins can be significantly affected by various factors, including changes in pH, temperature, ionic strength, and the presence of metal ions. These factors can alter the ionization state of amino acid side chains, disrupt electrostatic interactions, and affect the overall stability and activity of proteins.\n\nOne of the most critical factors is pH, which can influence the ionization state of amino acid side chains. For instance, at low pH, carboxyl groups (-COOH) become protonated (-COOH2+), while at high pH, amino groups (-NH2) become deprotonated (-NH-). These changes in charge distribution can disrupt salt bridges and hydrogen bonds, leading to protein denaturation and loss of function. For example, the digestive enzyme pepsin is most active at a low pH (around 1.5 to 2), typical of the stomach environment. A shift in pH can impair its activity, affecting digestion [1].\n\nTemperature also plays a crucial role in protein stability. At low temperatures, protein folding may be slow and incomplete, while at high temperatures, proteins may denature and lose their native structure. Each protein has an optimal temperature range for folding and function, and deviations from this range can lead to misfolding or denaturation [2].\n\nIonic strength, or the concentration of ions in the solution, can influence electrostatic interactions between charged amino acid side chains. High ionic strength can shield these interactions, while low ionic strength can enhance them. Changes in ionic strength can alter protein folding and stability, potentially leading to misfolding or aggregation [2].\n\nMetal ions are essential for the proper functioning of many biological processes, including electron transfer, redox reactions, and substrate binding and activation. The coordination chemistry of these metal ions impacts their function in several ways, such as influencing the enzyme's overall structure and its ability to bind substrates and catalyze reactions. The coordination geometry, ligand identity and binding strength, redox properties, and Lewis acidity and basicity of metal ions all play crucial roles in the catalytic activity of metalloproteins and metalloenzymes [4].\n\nIn summary, changes in pH, temperature, ionic strength, and the presence of metal ions can significantly affect the structure and function of proteins. Understanding these factors is crucial for many applications, such as drug design, protein purification, and the study of enzyme kinetics. Would you like to know more about the specific effects of these factors on protein function, such as their role in disease or biotechnology applications?</td>
+      <td>The pH of a solution can significantly affect the structure and function of proteins.</td>
+      <td>0.878761</td>
+      <td>0.378734</td>
+    </tr>
+    <tr>
+      <td>Proteins are made up by what groups that contain ionizable group like carboxyl (-COOH) or amino(NH2) Group'S donation to protons is called which process: protein denaturation. How does pH change?</td>
+      <td>Proteins are composed of amino acids, which contain ionizable groups such as carboxyl (-COOH) and amino (-NH2) groups. These groups can either donate or accept protons (H+ ions) depending on the pH of the surrounding environment. When the pH changes, the ionization state of these groups can change, leading to alterations in the protein's structure, stability, and function. This process is known as protein denaturation [1].\n\n### How pH Change Affects Proteins\n\n1. **Alteration of Charge Distribution**:\n   - When the pH changes, the ionizable groups in amino acids can gain or lose protons, leading to a change in the overall charge distribution of the protein. This can disrupt the electrostatic interactions between amino acids, which are crucial for maintaining the protein's three-dimensional structure. For example, at a low pH, the carboxyl groups (-COOH) will be protonated (-COOH2+), while at a high pH, the amino groups (-NH2) will be deprotonated (-NH-). These changes in charge can lead to the disruption of salt bridges and hydrogen bonds, causing the protein to unfold or aggregate [1].\n\n2. **Disruption of Hydrogen Bonding**:\n   - Changes in pH can also affect the hydrogen bonding network within a protein. Hydrogen bonds are essential for maintaining the secondary structure of proteins, such as alpha-helices and beta-sheets. When the pH changes, the ionization state of the amino acid side chains can change, leading to the disruption of hydrogen bonds and the loss of secondary structure [1].\n\n### Conclusion\n\nThe pH of a solution can significantly impact the structure and function of proteins by altering the ionization state of amino acid side chains. This can lead to changes in charge distribution and hydrogen bonding, ultimately affecting the protein's stability and function. Understanding these effects is crucial for various applications in biochemistry and molecular biology.\n\nWould you like to know more about the specific mechanisms of protein denaturation or the role of pH in protein folding?</td>
+      <td>Proteins are made up of amino acids, which contain ionizable groups, such as carboxyl (-COOH) and amino (-NH2) groups.</td>
+      <td>0.865910</td>
+      <td>0.341597</td>
+    </tr>
+    <tr>
+      <td>What is hydrogen peroxide?</td>
+      <td>Hydrogen peroxide is a chemical compound with the formula H₂O₂. It is a pale blue liquid in its pure form and is commonly found as a colorless liquid in diluted solutions. Hydrogen peroxide is a strong oxidizer and is widely used as a disinfectant, bleach, and antiseptic. It is also used in various industrial and medical applications. In diluted forms, it is often used for cleaning wounds and as a household disinfectant.</td>
+      <td>To determine the order of the chemical reaction between hydrogen peroxide (H2O2) and potassium iodide (KI), we need the experimental data collected.</td>
+      <td>0.941194</td>
+      <td>0.316527</td>
+    </tr>
+    <tr>
+      <td>High electrical conductivity is essential for what kind electron transfer between your fuel cell's electrode. How should you design high-catalytic activity to help extend life in an engineered environment with improved performance, durability or longer?</td>
+      <td>High electrical conductivity is essential for efficient electron transfer between the cathode and the external circuit in a fuel cell. This property is crucial for minimizing ohmic losses and enhancing the overall efficiency of the fuel cell [1].\n\nTo design high-catalytic activity for extending the life and improving the performance and durability of a fuel cell in an engineered environment, consider the following strategies:\n\n1. **Optimize Catalytic Activity for Oxygen Reduction Reaction (ORR)**:\n   - The cathode material should have high catalytic activity for the oxygen reduction reaction (ORR), which is the primary reaction occurring at the cathode in most fuel cells. New materials with enhanced ORR activity can help to minimize activation losses and improve the overall performance of the fuel cell [1].\n\n2. **Enhance Stability**:\n   - The cathode material should be chemically and mechanically stable under the operating conditions of the fuel cell. This includes resistance to corrosion, dissolution, and structural degradation, which can lead to a decline in performance over time. Developing new materials with improved stability can help to extend the lifetime and durability of fuel cells [1].\n\n3. **Improve Gas Diffusion**:\n   - The cathode material should allow for efficient gas diffusion, ensuring that the reactant gases (oxygen and water) can easily reach the active sites on the catalyst surface. New materials with optimized porosity and pore structure can help to enhance gas diffusion and improve fuel cell performance [1].\n\n4. **Consider Cost-Effectiveness**:\n   - The development of new cathode materials should also consider the cost of production and the availability of raw materials. By synthesizing materials that are more cost-effective and abundant, it is possible to reduce the overall cost of fuel cell technology and make it more accessible for widespread use [1].\n\nIn summary, designing high-catalytic activity involves optimizing properties such as electrical conductivity, catalytic activity, stability, gas diffusion, and cost-effectiveness. By addressing these key factors, researchers can develop advanced materials that enable more efficient, powerful, and long-lasting fuel cells, ultimately contributing to the broader adoption of this clean energy technology [1].\n\nWould you like to know more about specific materials or techniques used to enhance these properties in fuel cells?</td>
+      <td>Electrical conductivity: High electrical conductivity is essential for efficient electron transfer between the cathode and the external circuit.</td>
+      <td>0.920105</td>
+      <td>0.352871</td>
     </tr>
     <tr>
       <td>What is the compound formed between aluminum and oxygen?</td>
-      <td>The compound formed between aluminum and oxygen is **aluminum oxide (Al2O3)**. This compound is characterized by the transfer of electrons from aluminum to oxygen, resulting in the formation of positive aluminum ions (Al3+) and negative oxygen ions (O2−). The electrostatic attraction between these ions forms the ionic bond in aluminum oxide [1].\n\nAluminum oxide is a significant compound in various industrial applications due to its high melting point, hardness, and resistance to chemical reactions. It is commonly used in the production of ceramics, abrasives, and as a refractory material in high-temperature applications. The compound's stability and durability make it an essential component in many technological and manufacturing processes.\n\nThe formation of aluminum oxide involves the reaction of aluminum with oxygen, typically under high-temperature conditions. This reaction can occur naturally, such as in the oxidation of aluminum metal when exposed to air, or it can be induced in controlled environments to produce the compound for specific applications. The resulting aluminum oxide can exist in various crystalline forms, each with unique properties and uses.\n\nThe provided sources do not contain any information about the different crystalline forms of aluminum oxide. However, it is widely known that aluminum oxide can exist in several crystalline forms, including corundum, which is the most stable form and is used as a gemstone (sapphire and ruby). Other forms include gamma-alumina, which is used in catalysis, and alpha-alumina, which is used in abrasives and refractories. The different forms of aluminum oxide have varying properties and applications, making it a versatile material in many industries.</td>
+      <td>The compound formed between aluminum (Al) and oxygen (O) is **aluminum oxide (Al2O3)**. This compound is characterized by its ionic bonding, which arises from the significant electronegativity difference between aluminum and oxygen. Aluminum, with an electronegativity of 1.61, readily transfers electrons to oxygen, which has an electronegativity of 3.44, resulting in the formation of Al3+ and O2- ions. These ions are held together by strong electrostatic forces, forming the ionic bond in aluminum oxide [1].\n\nThe provided sources also discuss the chemical reactions involving aluminum and oxygen, including the determination of the limiting reactant and the stoichiometry of the reaction. Specifically, when 2.5 grams of aluminum reacts with 4.5 grams of oxygen gas, 4.72 grams of aluminum oxide can be produced [2].\n\nWould you like to know more about the properties of aluminum oxide or the chemical reactions involved in its formation?</td>
       <td>Aluminum oxide (Al2O3) is a compound formed between aluminum (Al) and oxygen (O) elements.</td>
-      <td>0.944504</td>
-      <td>0.260676</td>
+      <td>0.981229</td>
+      <td>0.334191</td>
+    </tr>
+    <tr>
+      <td>What theory describes the relationship between rate of electron transfer and thermodynamic driving force?</td>
+      <td>The relationship between the rate of electron transfer and the thermodynamic driving force of a redox reaction is described by the **Marcus theory of electron transfer**. This theory explains how the rate of electron transfer depends on the Gibbs free energy change (ΔG) of the reaction, which represents the thermodynamic driving force. According to the theory, the rate constant (k) for electron transfer can be expressed as:\n\n\[ k = k_0 \cdot \exp\left(-\frac{\Delta G^2}{4\lambda}\right) \]\n\nwhere:\n- \( k_0 \) is the pre-exponential factor,\n- \( \lambda \) is the reorganization energy, representing the energy required to rearrange the system from its initial state to the transition state,\n- \( \Delta G \) is the Gibbs free energy change of the reaction.\n\nThe overall reaction mechanism is significantly influenced by this relationship. When the thermodynamic driving force is favorable (i.e., negative ΔG), the rate of electron transfer increases, making the reaction more likely to occur. Conversely, when the driving force is unfavorable (i.e., positive ΔG), the rate of electron transfer decreases, and the reaction is less likely to occur [1].\n\nReal-world examples of electron transfer reactions that demonstrate this relationship include:\n1. **Photosynthesis**: In photosynthesis, light energy drives electron transfer reactions in chlorophyll molecules. The thermodynamic driving force for these reactions is provided by the absorbed light energy, which promotes electron transfer and enables the conversion of carbon dioxide and water into glucose and oxygen [1].\n2. **Batteries**: In batteries, redox reactions occur at the anode and cathode, where electrons are transferred between different chemical species. The thermodynamic driving force for these reactions is provided by the difference in electrochemical potential between the anode and cathode materials. This driving force determines the voltage of the battery and affects the rate of electron transfer, which in turn influences the battery's performance and capacity [1].\n3. **Corrosion**: Corrosion is an electrochemical process in which a metal reacts with its environment, leading to the transfer of electrons and the formation of metal ions. The thermodynamic driving force for corrosion is determined by the difference in electrochemical potential between the metal and its environment. When this driving force is favorable, the rate of electron transfer increases, and the metal corrodes more rapidly [1].\n\nUnderstanding the Marcus theory of electron transfer is crucial for predicting and optimizing the behavior of various chemical and biological processes that involve electron transfer reactions. Would you like to know more about the applications of this theory in specific fields, such as energy storage or biological systems?</td>
+      <td>The relationship between the rate of electron transfer and the thermodynamic driving force of a redox reaction can be described using the Marcus theory of electron transfer.</td>
+      <td>0.946309</td>
+      <td>0.266476</td>
+    </tr>
+    <tr>
+      <td>In photosynthesis, light energy is used to drive what reaction in chlorophyll molecules. How does absorbed luminosity contribute towards an increase or decrease for electrochemical reactions that occur at both electrodes?</td>
+      <td>The provided sources do not contain any information about the effect of absorbed luminosity on electrochemical reactions at electrodes. However, I can provide a general explanation based on common knowledge.\n\nIn photosynthesis, light energy is used to drive electron transfer reactions in chlorophyll molecules. The thermodynamic driving force for these reactions is provided by the absorbed light energy, which promotes electron transfer and enables the conversion of carbon dioxide and water into glucose and oxygen [1].\n\nIn the context of electrochemical reactions at electrodes, the absorbed luminosity can influence the reaction rates and mechanisms. When light is absorbed by a semiconductor electrode, it can generate electron-hole pairs, which can participate in redox reactions at the electrode surface. This phenomenon is known as photoelectrochemistry. The absorbed light energy can increase the rate of electrochemical reactions by providing additional energy to overcome activation barriers and by generating charge carriers that can participate in the reaction. Conversely, if the absorbed light energy is not sufficient or if it causes unwanted side reactions, it can decrease the efficiency of the electrochemical reactions.\n\nIn summary, absorbed luminosity can contribute to an increase in the rate of electrochemical reactions at electrodes by providing additional energy and generating charge carriers. However, the specific effects depend on the properties of the electrode material and the reaction conditions. Would you like to know more about this topic, such as the specific mechanisms of photoelectrochemistry or the factors that influence the efficiency of light-driven electrochemical reactions?</td>
+      <td>Photosynthesis: In photosynthesis, light energy is used to drive electron transfer reactions in chlorophyll molecules.</td>
+      <td>0.919526</td>
+      <td>0.286571</td>
     </tr>
     <tr>
       <td>What is a specific example of an enzyme that contains zinc in its active site?</td>
-      <td>The provided sources discuss the coordination chemistry of metalloenzymes, which are enzymes that contain metal ions in their active sites. A specific example of such an enzyme is **carbonic anhydrase**. This enzyme contains a zinc ion (Zn2+) in its active site and plays a crucial role in catalyzing the reversible hydration of carbon dioxide (CO2) to bicarbonate (HCO3-) and a proton (H+). This reaction is essential for maintaining acid-base balance in the body and facilitating CO2 transport in the blood [1].\n\nIn the active site of carbonic anhydrase, the zinc ion is coordinated to three histidine residues and a water molecule or hydroxide ion (OH-). The coordination chemistry of the zinc ion is critical to the enzyme's function. The zinc ion polarizes the coordinated water molecule, making it more nucleophilic and thus more reactive towards CO2. When CO2 enters the active site, it binds to the zinc-bound hydroxide, forming a zinc-bound bicarbonate intermediate. This intermediate is then released as HCO3-, and the active site is regenerated by coordinating a new water molecule to the zinc ion [1].\n\nThe specific arrangement of ligands around the zinc ion in carbonic anhydrase allows it to activate the water molecule and stabilize the bicarbonate intermediate, thereby facilitating the enzyme's function. Changes in the coordination environment, such as alterations in the ligands or the metal ion, can significantly impact the enzyme's activity and efficiency [1].\n\nCarbonic anhydrase is a prime example of how the coordination environment of a metal ion in the active site of an enzyme can influence its catalytic activity. The precise arrangement of ligands around the zinc ion is essential for the enzyme's ability to bind substrates, stabilize transition states, and facilitate catalysis. This coordination chemistry is a key factor in the enzyme's overall function and efficiency [1][2].\n\nWould you like to know more about the specific mechanisms by which carbonic anhydrase functions or explore other examples of metalloenzymes?</td>
+      <td>The provided sources discuss the coordination chemistry of metalloenzymes, specifically highlighting carbonic anhydrase as a notable example of an enzyme that contains zinc in its active site. Carbonic anhydrase is a metalloenzyme that plays a crucial role in catalyzing the reversible hydration of carbon dioxide (CO2) to bicarbonate (HCO3-) and a proton (H+). This reaction is essential for maintaining acid-base balance in the body and facilitating CO2 transport in the blood [1][2].\n\nIn the active site of carbonic anhydrase, the zinc ion (Zn2+) is coordinated to three histidine residues and a water molecule or hydroxide ion (OH-). This specific coordination environment is critical for the enzyme's function. The zinc ion polarizes the coordinated water molecule, making it more nucleophilic and thus more reactive towards CO2. When CO2 enters the active site, it binds to the zinc-bound hydroxide, forming a zinc-bound bicarbonate intermediate. This intermediate is then released as HCO3-, and the active site is regenerated by coordinating a new water molecule to the zinc ion [1].\n\nThe coordination chemistry of the zinc ion in carbonic anhydrase is essential for its catalytic activity. The specific arrangement of ligands around the zinc ion allows it to activate the water molecule and stabilize the bicarbonate intermediate, thereby facilitating the enzyme's function. Changes in the coordination environment, such as alterations in the ligands or metal ion, can significantly impact the enzyme's activity and efficiency [1][2].\n\nIn summary, carbonic anhydrase is a specific example of an enzyme that contains zinc in its active site, and its coordination chemistry plays a critical role in its catalytic activity and overall function. Would you like to know more about the role of zinc in other metalloenzymes or the broader implications of coordination chemistry in enzyme function?</td>
       <td>A specific example of a metalloenzyme is carbonic anhydrase, which contains a zinc ion (Zn2+) in its active site.</td>
-      <td>0.863470</td>
-      <td>0.344554</td>
+      <td>0.872964</td>
+      <td>0.376680</td>
+    </tr>
+    <tr>
+      <td>Talk to the Hand is not stuffy, but sure inspire what kind of conversation. In fact speaking about lack-of mannerism in America how many people said it was serious problem with their behavior at home or work?</td>
+      <td>The provided source discusses the book *Talk to the Hand* by Lynne Truss, which critiques modern rudeness and advocates for courtesy. The book is described as witty and engaging, designed to inspire spirited conversation rather than being a dry, stuffy guidebook [1].\n\nRegarding the lack of mannerism in America, the source mentions a recent U.S. survey where **79 percent of adults said that lack of courtesy was a serious problem** [1]. This statistic highlights the widespread concern about boorish behavior in both home and work environments.\n\nIn summary, *Talk to the Hand* aims to spark lively discussions about societal rudeness, and the survey data underscores the significant issue of declining courtesy in American society. If you're interested in exploring this topic further, you might consider reading the book or looking into other studies on social etiquette and its impact on daily life. Would you like to know more about the book's key arguments or other related surveys?</td>
+      <td>Like Eats, Shoots &amp; Leaves, Talk to the Hand is not a stuffy guidebook, and is sure to inspire spirited conversation.</td>
+      <td>0.879288</td>
+      <td>0.350558</td>
+    </tr>
+    <tr>
+      <td>What is the inspiration for upcoming series of Prime Video?</td>
+      <td>The inspiration for the upcoming original series on Prime Video is *The Lord of the Rings: The Rings of Power*, which is based on the epic adventure *The Lord of the Rings* by J.R.R. Tolkien. The series draws from the rich lore of Middle-earth, particularly the events leading up to *The Fellowship of the Ring*, the first part of Tolkien's trilogy. This foundational story introduces key elements such as the One Ring, the Dark Lord Sauron, and the perilous journey of Frodo Baggins to destroy the Ring and thwart Sauron's plans for dominion over Middle-earth [1].\n\nThe series aims to explore the depths of Tolkien's world, offering viewers a chance to delve into the history and mythology of Middle-earth, including the forging of the Rings of Power and the rise of various factions and characters that shape the fate of the land. This ambitious project promises to bring to life the intricate and captivating narrative that has captivated readers for decades.\n\nWould you like to know more about the upcoming series, such as its cast, production details, or the specific events it will cover?</td>
+      <td>The inspiration for the upcoming original series on Prime Video, The Lord of the Rings: The Rings of Power.</td>
+      <td>0.982240</td>
+      <td>0.331561</td>
     </tr>
     <tr>
       <td>Who wrote the novel Their Eyes Were Watching God?</td>
-      <td>The novel *Their Eyes Were Watching God* was written by Zora Neale Hurston. This novel, published in 1937, is considered a classic of the Harlem Renaissance of the 1920s and is likely Hurston's best-known work [1]. The story follows the life of Janie Crawford, an African American woman living in early 20th-century Florida, as she navigates her relationships and personal growth. The novel is celebrated for its rich language, vivid characters, and exploration of themes such as identity, love, and the African American experience. Hurston's unique narrative style and her deep understanding of African American culture have made *Their Eyes Were Watching God* a timeless piece of literature. If you are interested in learning more about the novel, you might want to explore its themes, characters, or the historical context in which it was written.</td>
+      <td>The novel *Their Eyes Were Watching God* was written by Zora Neale Hurston [1]. Published in 1937, it is considered a classic of the Harlem Renaissance of the 1920s and is likely Hurston's best-known work [1]. The novel explores themes of identity, love, and self-discovery through the journey of its protagonist, Janie Crawford, as she navigates relationships and societal expectations in early 20th-century America.\n\nThe novel is celebrated for its rich, lyrical prose and its portrayal of African American life in the South. Hurston's use of dialect and her focus on the experiences of Black women have made the novel a significant contribution to American literature. The story is set primarily in Eatonville, Florida, a town where Hurston herself grew up, and it reflects the cultural and social dynamics of the time.\n\nIn summary, *Their Eyes Were Watching God* stands as a testament to Hurston's literary prowess and her ability to capture the complexities of human relationships and the search for personal fulfillment. The novel continues to be widely read and studied for its profound insights into race, gender, and the human condition. Would you like to know more about the themes or the historical context of the novel?</td>
       <td>Their Eyes Were Watching God is a 1937 novel by African-American writer Zora Neale Hurston.</td>
       <td>0.945894</td>
-      <td>0.386573</td>
+      <td>0.350572</td>
+    </tr>
+    <tr>
+      <td>What is the definitive guide for every dog owner?</td>
+      <td>The definitive guide for every dog owner is the *Dog Owner's Home Veterinary Handbook* (Howell Reference Books). This classic bestseller has been expanded and updated to include the latest information on canine healthcare, nutrition, and holistic treatments. It provides vital information at your fingertips, including an index of signs and symptoms, step-by-step directions for handling common canine ailments, and a chapter on emergencies. The handbook also features hundreds of photos and drawings to help you understand what to look for and what to do to provide the best care for your dog. With this guide, you'll know when to rush your pet to the vet and when you can begin treatment at home, making it an essential resource for every dog owner [1].</td>
+      <td>Dog Owner's Home Veterinary Handbook, Fourth Edition, is the definitive guide for every dog owner.</td>
+      <td>1.000000</td>
+      <td>0.315091</td>
     </tr>
     <tr>
       <td>Who wrote the Picture of Dorian Gray?</td>
-      <td>The Picture of Dorian Gray is a novel written by Oscar Wilde. The book is a classic work of literature that explores themes of morality, beauty, and the consequences of a hedonistic lifestyle. It tells the story of Dorian Gray, a young man who remains eternally youthful while his portrait ages and reflects the corruption of his soul. The novel is renowned for its exploration of the duality of human nature and the dangers of unchecked indulgence. The Picture of Dorian Gray was first published in 1890 and has since become one of Wilde's most famous works, celebrated for its wit, social commentary, and psychological depth [1].</td>
+      <td>The Picture of Dorian Gray was written by Oscar Wilde. This classic novel is renowned for its exploration of themes such as aestheticism, morality, and the consequences of a hedonistic lifestyle. Wilde's work has had a lasting impact on literature and continues to be widely studied and admired. If you would like to know more about the novel's themes, characters, or its historical context, feel free to ask!</td>
       <td>The Picture of Dorian Gray by Oscar Wilde</td>
-      <td>0.968870</td>
-      <td>0.320999</td>
+      <td>0.919352</td>
+      <td>0.391472</td>
     </tr>
     <tr>
-      <td>Who was Alex Parks' friend on January 5, 1979?</td>
-      <td>The provided sources do not contain any information about Alex Parks' friend on January 5, 1979. However, the book "Life of Charles Erskine Scott Wood: A Renaissance Man" is inscribed "To my good friend Alex Parks, January 5, 1979 Erskine Wood" [1]. This inscription suggests that Charles Erskine Scott Wood was a friend of Alex Parks on January 5, 1979.\n\nCharles Erskine Scott Wood was an American lawyer, poet, and soldier. He was born in 1852 and died in 1944. He was known for his diverse interests and contributions to various fields, including law, literature, and military service. His life and work are documented in the book "Life of Charles Erskine Scott Wood: A Renaissance Man," which is a limited edition of 500 copies [1].\n\nIf you are interested in learning more about Charles Erskine Scott Wood or the book, you might want to explore his contributions to literature or his military career. Additionally, you could look into other friends or associates of Alex Parks to gain a broader understanding of his social circle.</td>
-      <td>The book is inscribed "To my good friend Alex Parks, January 5, 1979 Erskine Wood."</td>
-      <td>1.000000</td>
-      <td>0.396286</td>
-    </tr>
-    <tr>
-      <td>Who wrote "Death Comes for the Archbishop"?</td>
-      <td>"Death Comes for the Archbishop" was written by Willa Cather. The book is a historical fiction novel that explores the lives of two French missionaries, Father Jean Marie Latour and Father Joseph Vaillant, who travel to New Mexico in the mid-19th century to establish a diocese. The narrative is known for its lyrical prose and deep exploration of themes such as faith, friendship, and the American landscape. The novel is published by Good Press, which is known for publishing a wide range of titles across various genres, including classics and literary fiction [1].</td>
-      <td>"Death Comes for the Archbishop" by Willa Cather.</td>
-      <td>0.947309</td>
-      <td>0.334629</td>
-    </tr>
-    <tr>
-      <td>Who wrote Moby Dick?</td>
-      <td>Moby Dick is a novel written by the American author Herman Melville. Published in 1851, the book is renowned for its epic narrative of Captain Ahab's obsessive quest for revenge against Moby Dick, a great white whale. The novel is celebrated for its rich exploration of themes such as good and evil, the existence of God, and the human condition, all set against the backdrop of the whaling industry. Melville's use of diverse literary styles and devices, including Shakespearean elements and detailed descriptions of whale hunting, adds depth to the story. The opening line, "Call me Ishmael," is one of the most famous in Western literature, and the novel is now considered one of the Great American Novels and a leading work of American Romanticism [1].\n\nThe narrative follows Ishmael, who joins the crew of the whaleship Pequod, commanded by the monomaniacal Captain Ahab. Ahab's single-minded pursuit of Moby Dick, driven by his desire for vengeance, leads the crew on a perilous journey across the ocean. The novel delves into the lives of the diverse crew members, exploring their interactions and the challenges they face aboard the ship. Melville's intricate storytelling and philosophical musings make Moby Dick a timeless classic that continues to captivate readers today.\n\nWhile widely known, the novel was a commercial failure during Melville's lifetime and was out of print at the time of his death in 1891. However, its reputation grew significantly in the twentieth century, with notable figures like D.H. Lawrence and Jorge Luis Borges praising its literary merit. Today, Moby Dick is studied and admired for its profound themes and innovative narrative techniques. If you are interested in exploring more about the themes or the historical context of Moby Dick, such as its impact on American literature or its enduring legacy, feel free to ask.</td>
-      <td>Moby Dick is a novel by American writer Herman Melville.</td>
-      <td>0.948006</td>
-      <td>0.303362</td>
-    </tr>
-    <tr>
-      <td>How many languages has To Kill a Mockingbird been translated into?</td>
-      <td>The provided sources indicate that *To Kill a Mockingbird* has been translated into more than forty languages [1]. This widespread translation underscores the novel's global appeal and enduring significance in literature. The story's themes of justice, morality, and the loss of innocence resonate across cultural boundaries, making it a timeless classic that continues to be celebrated and studied worldwide. If you're interested in learning more about the impact of this novel or its translations, you might want to explore how it has influenced different cultures or how its themes are interpreted in various languages.</td>
-      <td>?and the heroism of one man in the face of blind and violent hatred One of the most cherished stories of all time, To Kill a Mockingbird has been translated into more than forty languages, sold more than forty million copies worldwide, served as the basis for an enormously popular motion picture, and was voted one of the best novels of the twentieth century by librarians across the country.</td>
-      <td>0.978322</td>
-      <td>0.319129</td>
-    </tr>
-    <tr>
-      <td>What is the story of Zulu pastor Stephen Kumalo and his son Absalome?</td>
-      <td>The provided source offers a brief overview of the story of Zulu pastor Stephen Kumalo and his son Absalom, set against the backdrop of racial injustice in South Africa. The narrative revolves around the deep emotional journey of these characters, highlighting themes of love, hope, courage, and endurance. The story is notable for its timeless relevance and the memorable portrayal of its characters and events.\n\n## Themes and Characters\n\n### Stephen Kumalo\nStephen Kumalo is a Zulu pastor who embarks on a journey to find his son, Absalom, who has been involved in criminal activities. His quest is driven by a deep sense of love and hope, despite the challenges posed by the racial injustices prevalent in the society. Kumalo's character embodies the resilience and dignity of the human spirit, making him a central figure in the narrative.\n\n### Absalom Kumalo\nAbsalom, the son of Stephen Kumalo, is a complex character whose actions and circumstances reflect the broader social issues of the time. His involvement in crime and subsequent events highlight the struggles faced by individuals caught in the web of racial injustice and societal pressures. Absalom's story is a poignant exploration of the consequences of a system that often fails its most vulnerable members.\n\n### Racial Injustice\nThe story is set against the backdrop of a land and a people riven by racial injustice. This theme is woven into the fabric of the narrative, influencing the actions and experiences of the characters. The racial tensions and injustices serve as a critical context for understanding the challenges faced by Stephen Kumalo and his son Absalom.\n\n### Love and Hope\nDespite the hardships and injustices, the story is imbued with a sense of love and hope. The characters' enduring spirit and their ability to find hope in the face of adversity are central to the narrative. This theme underscores the human capacity for resilience and the power of love to transcend even the most difficult circumstances.\n\n### Courage and Endurance\nThe characters in the story exhibit remarkable courage and endurance. Their ability to persevere through challenging times is a testament to their strength and determination. This theme is particularly evident in Stephen Kumalo's unwavering pursuit of his son and his unwavering faith in the face of adversity.\n\nIn summary, the story of Stephen Kumalo and his son Absalom is a deeply moving exploration of love, hope, courage, and endurance set against the backdrop of racial injustice. The narrative is remarkable for its timeless relevance and the unforgettable portrayal of its characters and events. The themes of love, hope, courage, and endurance are woven into the fabric of the story, making it a classic work that resonates with readers across generations. The story serves as a powerful reminder of the dignity of the human spirit and the enduring power of love and hope in the face of adversity. If you are interested in exploring more about the themes of racial injustice and its impact on individuals and societies, you might want to delve deeper into the historical and social context of the time period in which the story is set.</td>
-      <td>Cry the Beloved Country is the deeply moving story of the Zulu pastor Stephen Kumalo and his son Absalom, set against the background of a land and a people riven by racial injustice.</td>
-      <td>0.965824</td>
-      <td>0.359702</td>
-    </tr>
-    <tr>
-      <td>When was the original publication of Joseph Conrad's annotated bibliography published?</td>
-      <td>The original publication of the annotated bibliography of Joseph Conrad's works, titled "Heart of Darkness. (Heritage Club Series)," was published in 1990 [1]. This comprehensive bibliography covers the years from 1895 to 1975 and includes indexes of authors, secondary works, periodicals, newspapers, foreign languages, and primary titles. It is part of a series of annotated bibliographies on English Literature in Transition, 1880-1920, making it a valuable resource for students of literature [1].\n\nThis annotated bibliography is particularly useful for those studying Joseph Conrad's works, as it provides a detailed overview of the literary criticism and analysis that has been published on his writings over an 80-year period. The inclusion of indexes makes it easier for researchers to find specific information, whether they are looking for works by a particular author, in a specific language, or on a certain theme. The bibliography's coverage of both primary and secondary sources ensures that it is a comprehensive resource for anyone interested in Conrad's literary legacy.\n\nWould you like to know more about this annotated bibliography, such as the specific types of works it includes or how it can be used in literary research?</td>
-      <td>Originally published in 1990, this is a comprehensive and annotated bibliography of the writings on Joseph Conrad and his works.</td>
-      <td>0.918732</td>
-      <td>0.293874</td>
-    </tr>
-    <tr>
-      <td>Which author has written The Starbuck Chronicles?</td>
-      <td>The author of **The Starbuck Chronicles** is Bernard Cornwell. The series is a collection of historical fiction novels set during the American Civil War, with the third installment, **Battle Flag**, focusing on the summer of 1862 and the struggles of Captain Nate Starbuck, a Yankee fighting for the Southern cause [1].</td>
-      <td>From New York Times bestselling author Bernard Cornwell, the third installment in The Starbuck Chronicles.</td>
-      <td>0.945357</td>
-      <td>0.393792</td>
-    </tr>
-    <tr>
-      <td>Who wrote The Worst Journey in the World?</td>
-      <td>The Worst Journey in the World was written by Apsley Cherry-Garrard. The book chronicles the harrowing and tragic final expedition of Captain Robert Scott and his crew to the South Pole on the Terra Nova. Cherry-Garrard was a key member of the Terra Nova crew and vividly describes the entire journey, highlighting the extreme challenges and ultimate tragedy faced by the expedition [1].</td>
-      <td>?And I tell you, if you have the desire for knowledge and the power to give it physical expression, go out and explore,åÄ?å wrote Apsley Cherry-Garrard in the opening chapters of his now classic exploration narrative, The Worst Journey in the World.</td>
-      <td>0.953222</td>
-      <td>0.387365</td>
-    </tr>
-    <tr>
-      <td>Who wrote Raised Eyebrows about Groucho Marx and what other icon did he work for during his life as an apprentice to him?</td>
-      <td>The book "Raised Eyebrows: My Years Inside Groucho's House" is an intimate account of Groucho Marx, written by **Joseph Stoliar**. Stoliar, who was a young man at the time, had the unique opportunity to live with and work for Groucho Marx, providing an insider's perspective on the life of this iconic comedian. The book is praised for its engaging narrative and the depth of insight it offers into Groucho's personality and career [1].\n\nIn addition to his work with Groucho Marx, Stoliar also had the privilege of working with another significant figure in the entertainment industry. However, the provided sources do not specify the other icon he worked for. Stoliar's experiences with these prominent figures have contributed to his unique insights and the rich detail found in his writings.\n\nWould you like to know more about Joseph Stoliar's experiences with Groucho Marx, or perhaps explore the broader impact of Groucho Marx on comedy and entertainment?</td>
-      <td>-- Woody Allen "Raised Eyebrows is an intimate account of one of our national treasures - Groucho Marx.</td>
-      <td>0.874925</td>
-      <td>0.380410</td>
-    </tr>
-    <tr>
-      <td>Who wrote the Prince Catchers series?</td>
-      <td>The Prince Catchers series is written by Katharine Ashe, an award-winning author of historical romance. The series begins with the novel "I Married the Duke," which introduces readers to the captivating world of Regency romance and the intriguing characters that populate it. The series is known for its engaging narratives and has been compared to the works of other notable authors in the genre, such as Eloisa James and Lisa Kleypas [1].\n\nThe series follows the journey of Arabella Caulfield, one of three orphaned sisters, who is driven by an ancient gypsy prophecy to save her family from endless heartbreak. Her quest leads her to a remote French castle, where she must fulfill her destiny to marry a prince. Along the way, Arabella encounters Lucien Westfall, a decorated naval captain and the new Duke of Lycombe. Their initial misunderstandings—Arabella mistaking him for a pirate and Lucien assuming she is a governess—lead to a series of romantic entanglements that form the heart of the series [1].\n\nThe Prince Catchers series is celebrated for its richly detailed historical settings and the compelling relationships between its characters. Readers who enjoy Regency romances will find much to appreciate in Ashe's storytelling, which blends adventure, intrigue, and deep emotional connections. The series is a testament to Ashe's skill in crafting narratives that transport readers to another time and place, immersing them in the lives of her characters [1].\n\nFor those interested in exploring the Prince Catchers series, it is recommended to start with "I Married the Duke" to fully appreciate the development of the characters and the overarching plot. The series offers a delightful escape into a world of romance, mystery, and historical intrigue, making it a must-read for fans of the genre. If you are looking for more information about the series or its author, consider exploring additional resources or reviews to gain deeper insights into the captivating stories within the Prince Catchers series.</td>
-      <td>I Married the Duke begins the Prince Catchers series by Katharine Ashe, award-winning author of historical romance.</td>
-      <td>0.939535</td>
-      <td>0.368243</td>
-    </tr>
-    <tr>
-      <td>Which author wrote A Portrait Of The Artist as a Young Man (1916)?</td>
-      <td>The author of *A Portrait of the Artist as a Young Man* (1916) is James Joyce. This novel is renowned as one of the twentieth century's great coming-of-age stories. The Norton Critical Edition of the book, which is based on Hans Walter Gabler's acclaimed text, includes an introduction and textual notes by Gabler, as well as explanatory notes by John Paul Riquelme to enhance the reader's understanding and appreciation of Joyce's masterpiece [1]. The edition also features a variety of critical interpretations and background information on the political, cultural, and aesthetic contexts of the novel [1].\n\nThe novel delves into the life of Stephen Dedalus, a young Irishman who grapples with his identity, religion, and artistic aspirations. Through its stream-of-consciousness narrative and richly layered prose, *A Portrait of the Artist as a Young Man* explores themes of self-discovery, rebellion, and the struggle for artistic freedom. The book is a seminal work in modernist literature, influencing countless authors and readers with its innovative style and profound insights into the human condition.\n\nThe Norton Critical Edition of *A Portrait of the Artist as a Young Man* includes a diverse range of critical interpretations, providing readers with multiple perspectives on Joyce's work. These interpretations, along with the background materials, help to contextualize the novel within its historical and cultural milieu, offering a deeper understanding of its themes and techniques. The edition also includes a selected bibliography for further reading, making it an invaluable resource for both students and scholars of Joyce's work.\n\nWould you like to know more about the themes and techniques in *A Portrait of the Artist as a Young Man*, or perhaps explore the critical interpretations included in the Norton Critical Edition?</td>
-      <td>"James Joyce's A Portrait of the Artist as a Young Man (1916) is one of the twentieth century's great coming-of-age novels.</td>
-      <td>0.976011</td>
-      <td>0.325251</td>
-    </tr>
-    <tr>
-      <td>Who painted the Tarot of The Spirit deck?</td>
-      <td>The Tarot of the Spirit deck was painted by Joyce Eakins. This deck is illustrated with the Tarot of the Spirit and is centered on the Qabbalistic Tree of Life. It explores the Minor Arcana as a representation of the four components of life: spirit, emotion, intellect, and body. Additionally, it reveals the Major Arcana to be the keys to our emotional response patterns to the symbolic universe in which we live. The deck includes seven monthly meditations, individual readings, and layouts [1].</td>
-      <td>Illustrated with the Tarot of the Spirit deck painted by Joyce Eakins.</td>
-      <td>0.946654</td>
-      <td>0.374365</td>
-    </tr>
-    <tr>
-      <td>How many detailed illustrations and photos are included in Jim Tolpin's book on the Table Saw magic, 2nd Edition.?</td>
-      <td>The provided sources contain information about the number of detailed illustrations and photos included in Jim Tolpin's book on the Table Saw magic, 2nd Edition. The book includes more than 150 detailed illustrations and photos [1].</td>
-      <td>It's the most comprehensive guide available with more than 150 detailed illustrations and photos that show you how to build: Rip and crosscut sleds for high-precision cuts An adjustable dado-spacing fixture A miter jig with a sliding stop Hold-downs for the rip fence and saw table A circle-cutting fixture A raised panel jig with positive sliding action and integral hold-downs A carriage-type taper jig featuring a unique guidance system A vacuum-actuated fence for ripping thin slices With Jim Tolpin's Table Saw magic, 2nd Edition, you'll quickly see why the table saw isn't just for ripping and crosscutting anymore.</td>
-      <td>0.998301</td>
-      <td>0.339482</td>
-    </tr>
-    <tr>
-      <td>Who was the first book in The Chronicles of Narnia?</td>
-      <td>The first book in The Chronicles of Narnia is *The Lion, the Witch, and the Wardrobe*. This novel, written by C. S. Lewis, is a foundational work in the series and introduces readers to the magical world of Narnia. The story follows the adventures of four children—Peter, Susan, Edmund, and Lucy Pevensie—who discover a hidden portal to Narnia through an old wardrobe. The narrative explores themes of bravery, sacrifice, and the eternal struggle between good and evil, with the lion Aslan serving as a central figure. The book was published in 1950 and has since become a beloved classic in children's literature, known for its rich imagination and moral depth [1].\n\nThe Chronicles of Narnia series has had a significant impact on literature and popular culture, inspiring numerous adaptations, including films, television shows, and stage productions. The series has been praised for its ability to captivate both children and adults, offering layers of meaning that can be appreciated at different levels of understanding. The first book, in particular, has been celebrated for its vivid storytelling and the enduring appeal of its characters and themes.\n\nThe Chronicles of Narnia has also been the subject of academic study, with scholars examining its religious symbolism, literary techniques, and cultural influence. The series has been translated into multiple languages, further expanding its reach and impact. The enduring popularity of *The Lion, the Witch, and the Wardrobe* and the subsequent books in the series is a testament to the timeless quality of Lewis's writing and the universal themes he explored.\n\nWould you like to know more about the other books in The Chronicles of Narnia or the impact of C. S. Lewis's work on literature and popular culture?</td>
-      <td>The Lion, the Witch, and the Wardrobe is the first book in The Chronicles of Narnia.</td>
-      <td>0.955594</td>
-      <td>0.283794</td>
-    </tr>
-    <tr>
-      <td>Who wrote The Screwtape Letters?</td>
-      <td>The Screwtape Letters is a classic work of religious satire written by C.S. Lewis. Published in 1942, the book is composed of a series of letters written by a senior demon, Screwtape, to his nephew, Wormwood, a junior tempter. The letters provide a unique and ironic perspective on human life and the temptations that lead people away from virtue and toward sin. Through Screwtape's advice, Lewis explores themes of temptation, virtue, and the human condition, offering readers a thought-provoking and entertaining exploration of spiritual warfare [1].\n\nThe Screwtape Letters is notable for its wit and insight, making it a beloved and enduring piece of literature. The book's enduring appeal lies in its ability to entertain while also provoking deep reflection on moral and spiritual issues. The narrative structure, with its epistolary format, allows Lewis to delve into the psychological and moral struggles of human beings in a way that is both engaging and intellectually stimulating.\n\nWould you like to know more about the themes and messages conveyed in The Screwtape Letters, or perhaps explore other works by C.S. Lewis?</td>
-      <td>The Screwtape Letters by C.S.</td>
-      <td>0.869208</td>
-      <td>0.304675</td>
-    </tr>
-    <tr>
-      <td>How long has Peter Singer's Practical Ethics been the classic introduction to applied ethics?</td>
-      <td>Peter Singer's *Practical Ethics* has been the classic introduction to applied ethics for thirty years [1]. The book, first published in 1985, has since become a staple in the field, known for its lucid style and provocative arguments. It addresses a wide range of ethical questions relevant to both personal and societal concerns, making it an ideal text for university courses and anyone interested in ethical living. The third edition, published in 2025, includes updates and a new chapter on climate change, reflecting the ongoing relevance and importance of the topics discussed in the book [1].\n\nThe book covers various ethical dilemmas, such as the ethics of consuming luxuries when others lack basic necessities, the treatment of animals in intensive farming, and the environmental impact of individual actions. It also delves into broader societal issues like equality, discrimination, abortion, euthanasia, political violence, and environmental preservation. These topics are explored with a focus on how individuals can apply ethical principles to their daily lives and decisions [1].\n\nWould you like to know more about the specific ethical questions addressed in *Practical Ethics* or the updates included in the third edition?</td>
-      <td>For thirty years, Peter Singer's Practical Ethics has been the classic introduction to applied ethics.</td>
-      <td>0.892626</td>
-      <td>0.278997</td>
-    </tr>
-    <tr>
-      <td>Who is the author of Retold for Learners?</td>
-      <td>The author of the retold version of "Washington Square" for learners of English is Kieran McGovern. This retelling is part of the Oxford Bookworms Library, specifically at Stage 4, which is designed for learners with a vocabulary of around 1,400 headwords. The book includes an audio version, allowing readers to listen to the story as they read [1].</td>
-      <td>Retold for Learners of English by Kieran McGovern.</td>
-      <td>0.876786</td>
-      <td>0.386357</td>
+      <td>Who is trying restore her Jedi powers after he and Skywalker lost them together in the war against Daal.?</td>
+      <td>Callista, alongside Luke Skywalker, is attempting to restore her Jedi powers. This effort comes after both of them lost their powers during the war against Admiral Daala.</td>
+      <td>A ruthless mining baron joins forces with an Imperial general to construct their own superweapon, while Luke Skywalker and Callista attempt to restore her Jedi powers and Admiral Daala calls for detente among Imperial warlords to launch a new campaign to dominate the galaxy.</td>
+      <td>0.812371</td>
+      <td>0.391077</td>
     </tr>
   </tbody>
 </table>
@@ -793,8 +897,8 @@ memory usage: 29.5+ KB
 
         <div class="insight">
             <p>
-                <b>Misunderstandings Detected:</b> 1 cases
-                (0.33% of total responses)
+                <b>Misunderstandings Detected:</b> 11 cases
+                (2.02% of total responses)
             </p>
             <p>
                 <b>Definition:</b> Responses with low semantic relevancy (<0.4) but high factual correctness (>0.8). The
@@ -805,7 +909,7 @@ memory usage: 29.5+ KB
             <p>
                 <b>Average Metrics in Misunderstanding Cases:</b><br>
                 - Answer Relevancy: 0.0<br>
-                - Answer Correctness: 0.806
+                - Answer Correctness: 0.841
             </p>
             
         </div>
@@ -828,11 +932,39 @@ memory usage: 29.5+ KB
   </thead>
   <tbody>
     <tr>
-      <td>How many students were expelled from the university in 1948?</td>
-      <td>The provided sources do not contain any information about the number of students expelled from the university in 1948. However, it is mentioned that the climax of the protests was reached on 23 April 1948, after three students were expelled from the university without a trial [1]. This event led to a significant protest by about 2,000 students at the Hotel Esplanade [1]. The sources do not provide further details on the number of students expelled beyond this specific incident.</td>
-      <td>The climax of the protests was reached on 23 April 1948: after three students were expelled from the university without a trial, about 2,000 students protested at the Hotel Esplanade.</td>
+      <td>When was the perfect target release made available for purchase by Jenna Mills, and it is now in stores where you can buy them. What book did Jennifer mill write that has an impact on fashion today with regard to clothing sales online or offline?</td>
+      <td>The provided sources do not contain any information about a book written by Jennifer Mills that has an impact on fashion today with regard to clothing sales online or offline.\n\nThe Perfect Target by Jenna Mills was released on Feb 21, 2003 and is available now for purchase [1].</td>
+      <td>The Perfect Target by Jenna Mills released on Feb 21, 2003 is available now for purchase.</td>
       <td>0.0</td>
-      <td>0.805591</td>
+      <td>0.831919</td>
+    </tr>
+    <tr>
+      <td>What color is the girl praying for her eyes to turn blue?</td>
+      <td>The provided sources do not contain any information about the color of the girl's eyes. However, based on general and/or common knowledge, the girl in the story "The Bluest Eye" by Toni Morrison is an eleven-year-old black girl who prays for her eyes to turn blue so people will consider her beautiful.</td>
+      <td>An eleven-year-old black girl prays for her eyes to turn blue so people will consider her beautiful.</td>
+      <td>0.0</td>
+      <td>0.864880</td>
+    </tr>
+    <tr>
+      <td>How many people practice polygamy at their homes these days besides Jesus Christ and his followers of God that they believe to have received from Him as Lord, according?</td>
+      <td>The provided sources do not contain any information about the number of people who practice polygamy at their homes these days besides Jesus Christ and his followers of God that they believe to have received from Him as Lord.\n\nHowever, based on general and/or common knowledge, it is widely known that polygamy is practiced in various forms and contexts around the world. The exact number of people who practice polygamy at their homes is difficult to determine due to the clandestine nature of the practice in many regions and the lack of comprehensive data. Some estimates suggest that millions of people worldwide may be involved in polygamous relationships, but these figures are often speculative and vary widely depending on the source and the definition of polygamy used.\n\nWould you like to know more about this topic, such as the legal status of polygamy in different countries or the cultural and religious contexts in which it is practiced?</td>
+      <td>Defying both civil authorities and the Mormon establishment in Salt Lake City, the renegade leaders of these Taliban-like theocracies are zealots who answer only to God; some 40,000 people still practice polygamy in these communities.</td>
+      <td>0.0</td>
+      <td>0.811506</td>
+    </tr>
+    <tr>
+      <td>What is an essential cross-disciplinary reference for molecular interactions?</td>
+      <td>The provided sources do not contain any information about an essential cross-disciplinary reference for molecular interactions. However, based on general knowledge, one notable reference in this field is "Molecular Theory of Gases and Liquids." This book offers a rigorous, comprehensive treatment of molecular characteristics and behaviors in the gaseous and fluid states. It provides useful insights for students of chemistry, chemical engineering, fluid dynamics, and related fields, with thorough derivations and in-depth explanations throughout. Appropriate for graduate students and working scientists alike, this book details advanced concepts without sacrificing depth of coverage or technical detail.\n\nWould you like to know more about this book, such as its specific content or applications in various fields?</td>
+      <td>An essential cross-disciplinary reference for molecular interactions Molecular Theory of Gases and Liquids offers a rigorous, comprehensive treatment of molecular characteristics and behaviors in the gaseous and fluid states.</td>
+      <td>0.0</td>
+      <td>0.807987</td>
+    </tr>
+    <tr>
+      <td>Which designer own hair universalized as "the Perfect Shade Of Blonde"?</td>
+      <td>The provided sources do not contain any information about which designer owns hair universalized as "the Perfect Shade of Blonde." However, based on general knowledge, the source you provided mentions that Julie Bergdorf, a character in the novel *Bergdorf Blondes* by Plum Sykes, is described as having hair universally acknowledged as the Perfect Shade of Blonde. Julie Bergdorf is depicted as a department store heiress and a queen of Park Avenue in the novel.</td>
+      <td>After all, her BFF is Julie Bergdorf, department store heiress, queen of Park Avenue and owner of hair universally acknowledged as the Perfect Shade of Blonde.</td>
+      <td>0.0</td>
+      <td>0.868718</td>
     </tr>
   </tbody>
 </table>
@@ -865,25 +997,25 @@ memory usage: 29.5+ KB
   <tbody>
     <tr>
       <td>EC1: High Recall, Low Precision</td>
-      <td>18</td>
+      <td>54</td>
       <td>Recall = 1.0 AND Precision &lt; 0.3</td>
       <td>Perfect recall (Recall = 1.0) but poor precision (Precision &lt; 0.3). Correct doc retrieved but many irrelevant docs also retrieved.</td>
     </tr>
     <tr>
       <td>EC2: High Recall, Low Reranker</td>
-      <td>4</td>
+      <td>29</td>
       <td>Recall = 1.0 AND Reranker Score &lt; 0.33</td>
       <td>Correct document retrieved (Recall = 1.0) but ranked poorly by reranker (Reranker Score &lt; 0.33)</td>
     </tr>
     <tr>
       <td>EC3: Good Retrieval, Low Correctness</td>
-      <td>140</td>
+      <td>272</td>
       <td>Precision ≥ 0.5 AND Recall = 1.0 AND answer_correctness &lt; 0.6</td>
       <td>Good retrieval metrics (Precision ≥ 0.5, Recall = 1.0) but model still generates incorrect answers (answer_correctness &lt; 0.6)</td>
     </tr>
     <tr>
       <td>EC4: Poor Retrieval, High Correctness</td>
-      <td>9</td>
+      <td>2</td>
       <td>Precision &lt; 0.3 AND Recall = 0 AND answer_correctness &gt; 0.7</td>
       <td>Failed to retrieve correct document (Recall = 0, Precision &lt; 0.3) but answer is still correct (answer_correctness &gt; 0.7) - possibly from model's pre-training</td>
     </tr>
@@ -893,7 +1025,7 @@ memory usage: 29.5+ KB
 
         <details style="margin-top: 20px;">
             <summary style="cursor:pointer; font-weight:bold;">
-                EC1: High Recall, Low Precision (18 cases)
+                EC1: High Recall, Low Precision (54 cases)
             </summary>
             <p><b>Threshold:</b> <code>Recall = 1.0 AND Precision < 0.3</code></p>
             <p><i>Perfect recall (Recall = 1.0) but poor precision (Precision < 0.3). Correct doc retrieved but many irrelevant docs also retrieved.</i></p>
@@ -911,25 +1043,25 @@ memory usage: 29.5+ KB
   </thead>
   <tbody>
     <tr>
-      <td>How long do chicken breasts bake at 350 degrees uncovered?</td>
-      <td>0.142857</td>
-      <td>1.0</td>
-      <td>0.142857</td>
-      <td>0.650259</td>
-    </tr>
-    <tr>
-      <td>What size was the pastry dish I used?</td>
+      <td>What does a higher concentration of reactants lead to?</td>
       <td>0.200000</td>
       <td>1.0</td>
       <td>0.200000</td>
-      <td>0.546505</td>
+      <td>0.663350</td>
     </tr>
     <tr>
-      <td>What is the desired doneness for medium rare steaks?</td>
+      <td>What is TCM?</td>
       <td>0.250000</td>
       <td>1.0</td>
-      <td>0.500000</td>
-      <td>0.693964</td>
+      <td>0.333333</td>
+      <td>0.694816</td>
+    </tr>
+    <tr>
+      <td>What is a term for the surface area of an MOF?</td>
+      <td>0.166667</td>
+      <td>1.0</td>
+      <td>0.166667</td>
+      <td>0.548882</td>
     </tr>
   </tbody>
 </table>
@@ -939,7 +1071,7 @@ memory usage: 29.5+ KB
 
         <details>
             <summary style="cursor:pointer; font-weight:bold;">
-                EC2: High Recall, Low Reranker Score (4 cases)
+                EC2: High Recall, Low Reranker Score (29 cases)
             </summary>
             <p><b>Threshold:</b> <code>Recall = 1.0 AND Reranker Score < 0.33</code></p>
             <p><i>Correct document retrieved (Recall = 1.0) but ranked poorly by reranker (Reranker Score < 0.33)</i></p>
@@ -957,25 +1089,25 @@ memory usage: 29.5+ KB
   </thead>
   <tbody>
     <tr>
-      <td>How long do chicken breasts bake at 350 degrees uncovered?</td>
-      <td>0.142857</td>
-      <td>1.0</td>
-      <td>0.142857</td>
-      <td>0.650259</td>
-    </tr>
-    <tr>
-      <td>What size was the pastry dish I used?</td>
+      <td>What does a higher concentration of reactants lead to?</td>
       <td>0.200000</td>
       <td>1.0</td>
       <td>0.200000</td>
-      <td>0.546505</td>
+      <td>0.663350</td>
     </tr>
     <tr>
-      <td>How many first printing copies were made?</td>
-      <td>0.250000</td>
+      <td>What is a term for the surface area of an MOF?</td>
+      <td>0.166667</td>
       <td>1.0</td>
-      <td>0.250000</td>
-      <td>0.277616</td>
+      <td>0.166667</td>
+      <td>0.548882</td>
+    </tr>
+    <tr>
+      <td>What can be achieved through a multi-faceted approach?</td>
+      <td>0.200000</td>
+      <td>1.0</td>
+      <td>0.200000</td>
+      <td>0.581846</td>
     </tr>
   </tbody>
 </table>
@@ -985,7 +1117,7 @@ memory usage: 29.5+ KB
 
         <details>
             <summary style="cursor:pointer; font-weight:bold;">
-                EC3: Good Retrieval, Low Correctness (140 cases)
+                EC3: Good Retrieval, Low Correctness (272 cases)
             </summary>
             <p><b>Threshold:</b> <code>Precision ≥ 0.5 AND Recall = 1.0 AND answer_correctness < 0.6</code></p>
             <p><i>Good retrieval metrics (Precision ≥ 0.5, Recall = 1.0) but model still generates incorrect answers (answer_correctness < 0.6)</i></p>
@@ -1003,25 +1135,25 @@ memory usage: 29.5+ KB
   </thead>
   <tbody>
     <tr>
-      <td>How long does squash bake in a 400F oven?</td>
+      <td>What is the key to stability of DNA?</td>
       <td>0.5</td>
       <td>1.0</td>
       <td>0.5</td>
-      <td>0.479879</td>
+      <td>0.572043</td>
     </tr>
     <tr>
-      <td>How long will the brownies keep in your refrigerator covered tightly?</td>
+      <td>When does the reaction conditions favor dehydration, what can one of alcohol molecules do to form alkene?</td>
       <td>0.5</td>
       <td>1.0</td>
-      <td>1.0</td>
-      <td>0.502350</td>
+      <td>0.5</td>
+      <td>0.351270</td>
     </tr>
     <tr>
-      <td>How long should the dumplings be baked uncovered?</td>
+      <td>How do functional groups help to enhance adhesion and sealing of a polymer-based glue that has been designed for many uses. When does cross linking work, what is another way in which it helps with flexibility issues associated?</td>
       <td>0.5</td>
       <td>1.0</td>
       <td>1.0</td>
-      <td>0.511757</td>
+      <td>0.400051</td>
     </tr>
   </tbody>
 </table>
@@ -1031,7 +1163,7 @@ memory usage: 29.5+ KB
 
         <details>
             <summary style="cursor:pointer; font-weight:bold;">
-                EC4: Poor Retrieval, High Correctness (9 cases)
+                EC4: Poor Retrieval, High Correctness (2 cases)
             </summary>
             <p><b>Threshold:</b> <code>Precision < 0.3 AND Recall = 0 AND answer_correctness > 0.7</code></p>
             <p><i>Failed to retrieve correct document (Recall = 0, Precision < 0.3) but answer is still correct (answer_correctness > 0.7) - possibly from model's pre-training</i></p>
@@ -1049,25 +1181,18 @@ memory usage: 29.5+ KB
   </thead>
   <tbody>
     <tr>
-      <td>What are gram-negative bacteria's specific uptake mechanisms?</td>
+      <td>What is the name of Jo Frost?</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.870395</td>
+      <td>0.726962</td>
     </tr>
     <tr>
-      <td>Who wrote Floating in My MotherÛªS Palm first?</td>
+      <td>What is the author's work combining?</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.876015</td>
-    </tr>
-    <tr>
-      <td>When was the first hardcover edition of The Book by a Penguin published in America?</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.724557</td>
+      <td>0.918044</td>
     </tr>
   </tbody>
 </table>
@@ -1113,57 +1238,65 @@ memory usage: 29.5+ KB
       <th>0.000000</th>
       <td>0.000000</td>
       <td>0.0</td>
-      <td>0.493826</td>
-      <td>0.746265</td>
-      <td>42</td>
+      <td>0.560660</td>
+      <td>0.581526</td>
+      <td>8</td>
     </tr>
     <tr>
-      <th>0.142857</th>
-      <td>0.142857</td>
+      <th>0.125000</th>
+      <td>0.125000</td>
       <td>1.0</td>
-      <td>0.650259</td>
-      <td>0.970346</td>
+      <td>0.806491</td>
+      <td>1.000000</td>
       <td>1</td>
+    </tr>
+    <tr>
+      <th>0.166667</th>
+      <td>0.154762</td>
+      <td>1.0</td>
+      <td>0.643715</td>
+      <td>0.451427</td>
+      <td>4</td>
     </tr>
     <tr>
       <th>0.200000</th>
-      <td>0.200000</td>
+      <td>0.186667</td>
       <td>1.0</td>
-      <td>0.546505</td>
-      <td>0.000000</td>
-      <td>1</td>
+      <td>0.594077</td>
+      <td>0.552705</td>
+      <td>10</td>
     </tr>
     <tr>
       <th>0.250000</th>
-      <td>0.208333</td>
+      <td>0.222619</td>
       <td>1.0</td>
-      <td>0.377277</td>
-      <td>0.474242</td>
-      <td>2</td>
+      <td>0.562107</td>
+      <td>0.526642</td>
+      <td>14</td>
     </tr>
     <tr>
       <th>0.333333</th>
-      <td>0.304444</td>
+      <td>0.293966</td>
       <td>1.0</td>
-      <td>0.424924</td>
-      <td>0.732187</td>
-      <td>15</td>
+      <td>0.488439</td>
+      <td>0.789521</td>
+      <td>29</td>
     </tr>
     <tr>
       <th>0.500000</th>
-      <td>0.447807</td>
+      <td>0.440496</td>
       <td>1.0</td>
-      <td>0.516066</td>
-      <td>0.855252</td>
-      <td>38</td>
+      <td>0.524593</td>
+      <td>0.594157</td>
+      <td>82</td>
     </tr>
     <tr>
       <th>1.000000</th>
-      <td>0.848952</td>
+      <td>0.897778</td>
       <td>1.0</td>
-      <td>0.531034</td>
-      <td>0.874552</td>
-      <td>204</td>
+      <td>0.527096</td>
+      <td>0.619220</td>
+      <td>375</td>
     </tr>
   </tbody>
 </table>

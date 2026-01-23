@@ -1,3 +1,6 @@
 .venv-1/
 __pycache__/
 *.pyc
+merged_csvs/
+replay_files/
+outputs/plots/
